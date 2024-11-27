@@ -43,9 +43,9 @@ console.log(ALLbox);
 
 function display(list){
     list.forEach(player => {
-        let nameSize = 10;
-        if(player.name.length >= 14){
-            nameSize=2;
+        let nameSize = null;
+        if(player.name.length >= 18){
+            nameSize=0.4;
         }
         const playerCard = document.createElement("div");
         if(player.position === "GK"){
@@ -67,7 +67,7 @@ function display(list){
         <div class="player-card-bottom">
           <div class="player-info">
             <!-- Player Name-->
-            <div class="player-name"><span  style="font-size:0.6rem ;">${player.name}</span></div>
+            <div class="player-name"><span>${player.name}</span></div>
             <!-- Player Features-->
             <div class="player-features">
               <div class="player-features-col"><span>
@@ -112,7 +112,7 @@ function display(list){
         <div class="player-card-bottom">
           <div class="player-info">
             <!-- Player Name-->
-            <div class="player-name"><span  style="font-size:0.6rem ;">${player.name}</span></div>
+            <div class="player-name"><span  style="font-size:${nameSize}rem ;">${player.name}</span></div>
             <!-- Player Features-->
             <div class="player-features">
               <div class="player-features-col"><span>
