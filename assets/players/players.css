@@ -4,9 +4,9 @@
   */
   .fut-player-card {
     position: relative;
-    width: 9rem;
+    width: 10rem;
     height: 12rem;
-    background-image: url(https://selimdoyranli.com/cdn/fut-player-card/img/card_bg.png);
+    background-image: url(https://pdf-service-static.s3.amazonaws.com/static/layout-images/cardstar/thumbnails/bronze-totw-24.webp);
     background-position: center center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -23,8 +23,8 @@
     position: absolute;
     font-weight: 700;
     text-transform: uppercase;
-    margin-left: 0.5rem;
-    margin-top: 1.3rem;
+    margin-left: 1.4rem;
+    margin-top: 1.7rem;
     display: flex;
     flex-direction: column;
     gap: 0.2rem;

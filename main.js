@@ -20,16 +20,20 @@ fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
 
 // variables
 const stBox = document.querySelector("#st");
-const rwBox = document.querySelector(".rw");
-const lwBox = document.querySelector(".lw");
-const cmBox = document.querySelector(".cm");
-const cbBox = document.querySelector(".cb");
-const lbBox = document.querySelector(".lb");
-const gkBox = document.querySelector(".gk");
+const rwBox = document.querySelector("#rw");
+const rbBox = document.querySelector("#rb");
+const lwBox = document.querySelector("#lw");
+const cmBox = document.querySelector("#cm");
+const cdmBox = document.querySelector("#cdm");
+const cbBox = document.querySelector("#cb");
+const lbBox = document.querySelector("#lb");
+const gkBox = document.querySelector("#gk");
 const ALLbox = {
     "ST": stBox,
     "RW": rwBox,
+    "RB": rbBox,
     "CM": cmBox,
+    "CDM": cdmBox,
     "CB": cbBox,
     "LW": lwBox,
     "LB": lbBox,
@@ -134,7 +138,14 @@ function display(list){
       </div>
             `;
         }
+       console.log(playerCard);
+       console.log(player.position);
        
-        ALLbox[`${player.position}`].append(playerCard)
+       
+       if (ALLbox[player.position]) {
+        ALLbox[player.position].append(playerCard);
+    } else {
+        console.error(`Position ${player.position} not found in ALLbox.`);
+    }
     });
 }
