@@ -4,9 +4,9 @@
   */
   .fut-player-card {
     position: relative;
-    width: 3rem;
+    width: 3.5rem;
     height: 5rem;
-    background-image: url(https://selimdoyranli.com/cdn/fut-player-card/img/card_bg.png);
+    background-image: url(https://pdf-service-static.s3.amazonaws.com/static/layout-images/cardstar/thumbnails/totw-23.webp);
     background-position: center center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@
     font-weight: 500;
     padding: 0.5rem 0;
     text-transform: uppercase;
-    margin-left: 0.2rem;
+    margin-left: 0.5rem;
     margin-top: 0.3rem;
   }
   .fut-player-card .player-card-top .player-master-info .player-rating {
