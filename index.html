@@ -17,67 +17,67 @@
     <nav class="flex justify-between items-center px-5 bg-slate-950 text-white h-14">
         <h1 class="font-bold"><span class="text-red-600">MC</span> FOOTBALL</h1>
         <ul class="flex gap-5">
-           <a href="index.html" target="_blank" rel="noopener noreferrer"> <li>Home</li></a>
-           <a href="players.html" target="_blank" rel="noopener noreferrer"> <li>Players</li></a>
+           <a href="index.html"  rel="noopener noreferrer"> <li>Home</li></a>
+           <a href="players.html"  rel="noopener noreferrer"> <li>Players</li></a>
         </ul>
     </nav>
-    <main class="flex "
+    <main class="flex relative"
         style="background-image: url('./FUT-Champ-Ultimate-Team-Assets/src/assets/img/foot.jpg'); background-position: left; background-size: cover;">
         <div class="stadup relative w-full max-w-2xl h-full mx-auto">
             <img src="./FUT-Champ-Ultimate-Team-Assets/src/assets/img/field-bg.svg" class=" w-full h-full object-cover">
             <div class="stad absolute top-0 left-0 z-10 w-full h-full  grid grid-cols-8 grid-rows-8 gap-0">
-                <div class="card1 row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
-                    <div id="addLW" class="fut-player-card">
+                <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+                    <div data-position="LW" class="fut-player-card cursor-pointer">
                         <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addST" class="card2 row-start-1 flex justify-center col-start-4 col-span-2 "> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-1 flex justify-center col-start-4 col-span-2"> <!-- *** fut-player-card ***-->
+                    <div data-position="ST" class="fut-player-card cursor-pointer">
                          <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addRW" class="card3 row-start-1 flex justify-center col-start-6 col-span-2 "> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-1 flex justify-center col-start-6 col-span-2 "> <!-- *** fut-player-card ***-->
+                    <div data-position="RW" class="fut-player-card cursor-pointer">
                       <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addCM" class="card4 row-start-3 col-start-2 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-3 col-start-2 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CM" class="fut-player-card cursor-pointer">
                 <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addCM" class="card5 row-start-3 col-start-4 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-3 col-start-4 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CM" class="fut-player-card cursor-pointer">
                       <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addCM" class="card6 row-start-3 col-start-6 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-3 col-start-6 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CM" class="fut-player-card cursor-pointer">
                     <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addRB" class="card7 row-start-5  col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-5  col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="RB" class="fut-player-card cursor-pointer">
                         <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addCB" class="card8 row-start-5 col-start-3 col-span-2 flex justify-center "> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-5 col-start-3 col-span-2 flex justify-center "> <!-- *** fut-player-card ***-->
+                    <div data-position="CB" class="fut-player-card cursor-pointer">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addGK" class="card9 row-start-5 col-start-5 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card row-start-5 col-start-5 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="GK" class="fut-player-card cursor-pointer">
             <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addCB" class="card10 row-start-5 col-start-7 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card  row-start-5 col-start-7 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CB" class="fut-player-card cursor-pointer">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div id="addLB" class="card11 col-start-4 col-span-2 row-start-7 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div class="fut-player-card">
+                <div  class="card col-start-4 col-span-2 row-start-7 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="LB" class="fut-player-card cursor-pointer">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
@@ -99,12 +99,12 @@
       <option value="4-4-2">4-4-2</option>
     </select>
   </form>
-  
             </div>
         </div>
-        <div class="modal_players w-full h-full absolute flex justify-center items-center  z-10 ">
-            <div class="st modalPlayer flex flex-wrap w-1/2 h-fit gap-14"></div>
-        </div>
+             <!-- modal -->
+             <div class="modal_players pl-80 hidden w-full h-full absolute items-center  z-20 ">
+                <div class="modalPlayer flex flex-wrap overflow-y-auto w-1/3  gap-14 bg-black"></div>
+            </div>
     </main>
     <footer class="bg-stone-950">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -202,6 +202,7 @@
             </div>
         </div>
     </footer>
+    <script src="./main.js"></script>
 </body>
 
 </html>
