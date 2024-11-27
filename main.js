@@ -26,7 +26,7 @@ const lwBox = document.querySelector(".lw");
 const cmBox = document.querySelector(".cm");
 const cdmBox = document.querySelector(".cdm");
 const cbBox = document.querySelector(".cb");
-const lbBox = document.querySelector("lb");
+const lbBox = document.querySelector(".lb");
 const gkBox = document.querySelector(".gk");
 const ALLbox = {
     "ST": stBox,
