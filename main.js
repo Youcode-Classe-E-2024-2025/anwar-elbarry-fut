@@ -132,6 +132,7 @@ playersBox.forEach(box => {
         
         modalBox.append(ceratCard(player));
       })
+        box.classList.remove("flex");
         modalContainer.classList.add("flex");
         modalContainer.classList.remove("hidden");
         plus.classList.add("hidden");
