@@ -1,4 +1,5 @@
-
+document.addEventListener('DOMContentLoaded', function() {
+    
 let listPlayers=[];
 fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
 .then(Response =>{ 
@@ -117,6 +118,67 @@ function ceratCard(player){
        console.log(player.position);
        return playerCard;
 }
+const stadium = document.querySelector(".stad");
+function studiCards(){
+      stadium.innerHTML = `
+      <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+                    <div data-position="LW" class="fut-player-card cursor-pointer flex">
+                        <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-1 flex justify-center col-start-4 col-span-2"> <!-- *** fut-player-card ***-->
+                    <div data-position="ST" class="fut-player-card cursor-pointer flex">
+                         <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-1 flex justify-center col-start-6 col-span-2 "> <!-- *** fut-player-card ***-->
+                    <div data-position="RW" class="fut-player-card cursor-pointer flex">
+                      <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-3 col-start-2 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CM" class="fut-player-card cursor-pointer flex">
+                <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-3 col-start-4 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CM" class="fut-player-card cursor-pointer flex">
+                      <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-3 col-start-6 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CM" class="fut-player-card cursor-pointer flex">
+                    <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-5  col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="RB" class="fut-player-card cursor-pointer flex">
+                        <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-5 col-start-3 col-span-2 flex justify-center "> <!-- *** fut-player-card ***-->
+                    <div data-position="CB" class="fut-player-card cursor-pointer flex">
+              <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card row-start-5 col-start-5 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="CB" class="fut-player-card cursor-pointer flex">
+            <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card  row-start-5 col-start-7 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="LB" class="fut-player-card cursor-pointer flex">
+              <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>
+                <div  class="card col-start-4 col-span-2 row-start-7 flex justify-center"> <!-- *** fut-player-card ***-->
+                    <div data-position="GK" class="fut-player-card cursor-pointer flex">
+              <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    </div>
+                </div>`
+                return stadium;
+}
+studiCards()
 
 const playersBox = document.querySelectorAll(".fut-player-card");
 const modalBox = document.querySelector(".modalPlayer");
@@ -129,12 +191,30 @@ playersBox.forEach(box => {
         console.log(positionSelected);
       const playerPosition = listPlayers.filter(player => player.position === positionSelected);
       playerPosition.forEach(player => {
-        
         modalBox.append(ceratCard(player));
       })
         box.classList.remove("flex");
         modalContainer.classList.add("flex");
         modalContainer.classList.remove("hidden");
         plus.classList.add("hidden");
+        // append the card 
+        const cardsSelected = modalBox.querySelectorAll(".fut-player-card");
+        cardsSelected.forEach(card => {
+        card.addEventListener('click',()=>{
+            modalBox.innerHTML="";
+            
+            box.append(card);
     })
 })
+    })
+    modalContainer.addEventListener("click",() => {
+        modalBox.innerHTML="";
+        box.classList.add("flex");
+        modalContainer.classList.remove("flex");
+        modalContainer.classList.add("hidden");
+        plus.classList.remove("hidden");
+    })
+})
+
+
+  });
