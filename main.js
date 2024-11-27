@@ -19,15 +19,15 @@ fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
 .catch(error =>  console.error(error))
 
 // variables
-const stBox = document.querySelector("#st");
-const rwBox = document.querySelector("#rw");
-const rbBox = document.querySelector("#rb");
-const lwBox = document.querySelector("#lw");
-const cmBox = document.querySelector("#cm");
-const cdmBox = document.querySelector("#cdm");
-const cbBox = document.querySelector("#cb");
-const lbBox = document.querySelector("#lb");
-const gkBox = document.querySelector("#gk");
+const stBox = document.querySelector(".st");
+const rwBox = document.querySelector(".rw");
+const rbBox = document.querySelector(".rb");
+const lwBox = document.querySelector(".lw");
+const cmBox = document.querySelector(".cm");
+const cdmBox = document.querySelector(".cdm");
+const cbBox = document.querySelector(".cb");
+const lbBox = document.querySelector("lb");
+const gkBox = document.querySelector(".gk");
 const ALLbox = {
     "ST": stBox,
     "RW": rwBox,
