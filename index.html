@@ -51,7 +51,7 @@
                   Save
                 </button>
               </form>
-              <button
+              <button id="addPlayerBtn"
               class=" bg-white text-black px-4 py-2 rounded-md hover:bg-black hover:border-2 hover:text-white hover:border-white">
               add new player
             </button>
@@ -60,8 +60,9 @@
              <div class="modal_players pl-80 hidden w-full h-full absolute items-center  z-20 ">
                 <div class="modalPlayer flex flex-wrap  gap-5 bg-slate-800 p-3 rounded"></div>
             </div>
+
             <!-- addNew player modal -->
-             <div class="addNewplayer-modal absolute z-10  h-full w-full flex justify-center items-center overflow-y-auto">
+             <div class="addNewplayer-modal hidden absolute z-10  h-full w-full  justify-center items-center overflow-y-auto">
               <form class="bg-cyan-950 w-9/12 h-4/5 overflow-y-auto rounded p-7">
                 <div class="space-y-12">
                   
@@ -178,6 +179,7 @@
               
   
              </div>
+
     </main>
     <footer class="bg-stone-950">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">

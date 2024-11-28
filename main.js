@@ -229,3 +229,13 @@ playersBox.forEach(box => {
 
 
   });
+
+
+  // add New player
+
+  const addNewPlayerBtn = document.getElementById("addPlayerBtn");
+  const addNewplayerModal = document.querySelector(".addNewplayer-modal");
+  addNewPlayerBtn.addEventListener('click', ()=> {
+         addNewplayerModal.classList.add('flex');
+         addNewplayerModal.classList.remove('hidden');
+  })
