@@ -235,6 +235,7 @@ playersBox.forEach(box => {
 
   const addNewPlayerBtn = document.getElementById("addPlayerBtn");
   const cancelBtn = document.getElementById("cancel");
+  const submitlBtn = document.getElementById("submit");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
   addNewPlayerBtn.addEventListener('click', ()=> {
          addNewplayerModal.classList.add('flex');
@@ -244,3 +245,36 @@ playersBox.forEach(box => {
          addNewplayerModal.classList.remove('flex');
          addNewplayerModal.classList.add('hidden');
   })
+
+  // get informations from the form modal
+
+  submitlBtn.addEventListener('submit',  (event) => {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Retrieve form values
+    const playerDataForm = {
+        name: this.elements[0].value,
+        photo: this.elements[1].value,
+        position: this.elements[2].value,
+        nationality: this.elements[3].value,
+        flag: this.elements[4].value,
+        club: this.elements[5].value,
+        logo: this.elements[6].value,
+        rating: parseInt(this.elements[7].value),
+        pace: parseInt(this.elements[8].value),
+        shooting: parseInt(this.elements[9].value),
+        passing: parseInt(this.elements[10].value),
+        dribbling: parseInt(this.elements[11].value),
+        defending: parseInt(this.elements[12].value),
+        physical: parseInt(this.elements[13].value),
+    };
+
+    playerDataForm.push(playerData);
+
+
+
+    // Optional: Hide the form after submission
+    document.getElementById('playerFormContainer').classList.add('hidden');
+    rightSidePlayers();
+});
