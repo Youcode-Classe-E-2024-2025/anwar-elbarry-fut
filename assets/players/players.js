@@ -1,22 +1,15 @@
 
-let listPlayers=[];
-fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
-.then(Response =>{ 
-    if(!Response.ok){
-        console.log("error");
-        return;
-    }
-    
-    return Response.json()}
-)
-.then(data => 
-   { if(data){
-    listPlayers = data.players;
-    display(listPlayers);
-}}
-)
-.catch(error =>  console.error(error))
 
+ let listPlayers=[];
+ // Retrieve the players data from localStorage
+ const storedPlayers = localStorage.getItem('players');
+ 
+ if (storedPlayers) {
+   // Parse the JSON string back into an array
+   listPlayers = JSON.parse(storedPlayers);
+ } else {
+   console.log("No players data found in local storage");
+ }
 // variables
 const stBox = document.querySelector(".st");
 const rwBox = document.querySelector(".rw");
@@ -137,6 +130,7 @@ function display(list){
       </div>
             `;
         }
+        display(listPlayers);
        console.log(playerCard);
        console.log(player.position);
        

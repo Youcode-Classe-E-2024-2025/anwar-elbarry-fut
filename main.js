@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+  // localStorage.clear();
 let listPlayers=[];
 fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
 .then(Response =>{ 
@@ -13,6 +13,7 @@ fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
 .then(data => 
    { if(data){
     listPlayers = data.players;
+    localStorage.setItem('players', JSON.stringify(listPlayers));
 }}
 )
 .catch(error =>  console.error(error))
@@ -235,7 +236,7 @@ playersBox.forEach(box => {
 
   const addNewPlayerBtn = document.getElementById("addPlayerBtn");
   const cancelBtn = document.getElementById("cancel");
-  const submitlBtn = document.getElementById("submit");
+  const submitlBtn = document.getElementById("submitData");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
   addNewPlayerBtn.addEventListener('click', ()=> {
          addNewplayerModal.classList.add('flex');
@@ -248,12 +249,12 @@ playersBox.forEach(box => {
 
   // get informations from the form modal
 
-  submitlBtn.addEventListener('submit',  (event) => {
+  document.getElementById('addPlayerForm').addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
     // Retrieve form values
-    const playerDataForm = {
+    const playerData = {
         name: this.elements[0].value,
         photo: this.elements[1].value,
         position: this.elements[2].value,
@@ -269,12 +270,17 @@ playersBox.forEach(box => {
         defending: parseInt(this.elements[12].value),
         physical: parseInt(this.elements[13].value),
     };
+  // Retrieve the current list of players from localStorage
+  let listPlayers = JSON.parse(localStorage.getItem('players')) || [];
 
-    playerDataForm.push(playerData);
+  // Add the new player data to the list
+  listPlayers.push(playerData);
 
+  // Save the updated list back into localStorage
+  localStorage.setItem('players', JSON.stringify(listPlayers));
 
-
-    // Optional: Hide the form after submission
-    document.getElementById('playerFormContainer').classList.add('hidden');
-    rightSidePlayers();
+  // Optionally, log to confirm the update
+  console.log("Player added:", playerData);
+  console.log("Updated players list:", listPlayers);
+  this.reset();
 });
