@@ -42,7 +42,7 @@ function display(list){
         const playerCard = document.createElement("div");
         if(player.position === "GK"){
             playerCard.innerHTML = `
-            <div class="fut-player-card">
+            <div class="fut-player-card hover:scale-105 cursor-pointer">
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -87,7 +87,7 @@ function display(list){
         }
         else{
             playerCard.innerHTML = `
-            <div class="fut-player-card">
+            <div class="fut-player-card  hover:scale-105 cursor-pointer">
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -130,7 +130,6 @@ function display(list){
       </div>
             `;
         }
-        display(listPlayers);
        console.log(playerCard);
        console.log(player.position);
        
@@ -142,3 +141,4 @@ function display(list){
     }
     });
 }
+display(listPlayers);

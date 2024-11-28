@@ -1,23 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
   // localStorage.clear();
-let listPlayers=[];
-fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
-.then(Response =>{ 
-    if(!Response.ok){
-        console.log("error");
-        return;
-    }
+  if(!localStorage.getItem('players')){
     
-    return Response.json()}
-)
-.then(data => 
-   { if(data){
-    listPlayers = data.players;
-    localStorage.setItem('players', JSON.stringify(listPlayers));
-}}
-)
-.catch(error =>  console.error(error))
+    fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
+    .then(Response =>{ 
+        if(!Response.ok){
+            console.log("error");
+            return;
+        }
+        
+        return Response.json()}
+    )
+    .then(data => 
+      
+      {
+        if(data){
+        localStorage.setItem('players', JSON.stringify(data.players));
+    }}
+    
+    )
+    .catch(error =>  console.error(error))
+    
+  }
 
+const listPlayers = JSON.parse(localStorage.getItem('players'))
 
 function ceratCard(player){
         let nameSize = null;
@@ -27,7 +33,7 @@ function ceratCard(player){
         const playerCard = document.createElement("div");
         if(player.position === "GK"){
             playerCard.innerHTML = `
-            <div class="fut-player-card">
+            <div class="fut-player-card hover:scale-105 cursor-pointer">
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -72,7 +78,7 @@ function ceratCard(player){
         }
         else{
             playerCard.innerHTML = `
-            <div class="fut-player-card">
+            <div class="fut-player-card hover:scale-105 cursor-pointer">
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -121,64 +127,63 @@ const stadium = document.querySelector(".stad");
 function studiCards(){
       stadium.innerHTML = `
       <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
-                    <div data-position="LW" class="fut-player-card cursor-pointer flex">
+                    <div data-position="LW" class="fut-player-card cursor-pointer flex hover:scale-105">
                         <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-1 flex justify-center col-start-4 col-span-2"> <!-- *** fut-player-card ***-->
-                    <div data-position="ST" class="fut-player-card cursor-pointer flex">
+                    <div data-position="ST" class="fut-player-card cursor-pointer flex hover:scale-105">
                          <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-1 flex justify-center col-start-6 col-span-2 "> <!-- *** fut-player-card ***-->
-                    <div data-position="RW" class="fut-player-card cursor-pointer flex">
+                    <div data-position="RW" class="fut-player-card cursor-pointer flex hover:scale-105">
                       <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-3 col-start-2 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div data-position="CM" class="fut-player-card cursor-pointer flex">
+                    <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
                 <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-3 col-start-4 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div data-position="CM" class="fut-player-card cursor-pointer flex">
+                    <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
                       <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-3 col-start-6 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div data-position="CM" class="fut-player-card cursor-pointer flex">
+                    <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
                     <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-5  col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div data-position="RB" class="fut-player-card cursor-pointer flex">
+                    <div data-position="RB" class="fut-player-card cursor-pointer flex hover:scale-105">
                         <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-5 col-start-3 col-span-2 flex justify-center "> <!-- *** fut-player-card ***-->
-                    <div data-position="CB" class="fut-player-card cursor-pointer flex">
+                    <div data-position="CB" class="fut-player-card cursor-pointer flex hover:scale-105">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card row-start-5 col-start-5 col-span-2 flex justify-center bg-red"> <!-- *** fut-player-card ***-->
-                    <div data-position="CB" class="fut-player-card cursor-pointer flex">
+                    <div data-position="CB" class="fut-player-card cursor-pointer flex hover:scale-105">
             <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card  row-start-5 col-start-7 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div data-position="LB" class="fut-player-card cursor-pointer flex">
+                    <div data-position="LB" class="fut-player-card cursor-pointer flex hover:scale-105">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
                 <div  class="card col-start-4 col-span-2 row-start-7 flex justify-center"> <!-- *** fut-player-card ***-->
-                    <div data-position="GK" class="fut-player-card cursor-pointer flex">
+                    <div data-position="GK" class="fut-player-card cursor-pointer flex hover:scale-105">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>`
                 return stadium;
 }
 studiCards()
-
 const playersBox = document.querySelectorAll(".fut-player-card");
 const modalBox = document.querySelector(".modalPlayer");
 const modalContainer = document.querySelector(".modal_players");
@@ -192,8 +197,10 @@ playersBox.forEach(box => {
       const positionSelected = box.getAttribute('data-position');
     //   get nodes list of the cards that contains the seem position
       const playerPosition = listPlayers.filter(player => player.position === positionSelected);
+      
       playerPosition.forEach(player => {
         // append the cards in the modal
+        
         modalBox.append(ceratCard(player));
       })
     //    desplay the modal
@@ -229,7 +236,7 @@ playersBox.forEach(box => {
 })
 
 
-  });
+ 
 
 
   // add New player
@@ -242,7 +249,8 @@ playersBox.forEach(box => {
          addNewplayerModal.classList.add('flex');
          addNewplayerModal.classList.remove('hidden');
   })
-  cancelBtn.addEventListener('click', ()=> {
+  cancelBtn.addEventListener('click', (e)=> {
+         e.preventDefault()
          addNewplayerModal.classList.remove('flex');
          addNewplayerModal.classList.add('hidden');
   })
@@ -270,17 +278,18 @@ playersBox.forEach(box => {
         defending: parseInt(this.elements[12].value),
         physical: parseInt(this.elements[13].value),
     };
-  // Retrieve the current list of players from localStorage
-  let listPlayers = JSON.parse(localStorage.getItem('players')) || [];
+  
 
   // Add the new player data to the list
   listPlayers.push(playerData);
 
   // Save the updated list back into localStorage
   localStorage.setItem('players', JSON.stringify(listPlayers));
-
+  addNewplayerModal.classList.remove('flex');
+  addNewplayerModal.classList.add('hidden');
   // Optionally, log to confirm the update
   console.log("Player added:", playerData);
   console.log("Updated players list:", listPlayers);
   this.reset();
+});
 });
