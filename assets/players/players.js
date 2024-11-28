@@ -44,7 +44,7 @@ function display(list){
         if(player.position === "GK"){
             playerCard.innerHTML = `
            
-            <div class="fut-player-card hover:scale-105 cursor-pointer">
+            <div class="fut-player-card hover:scale-105 cursor-pointer" data-id="${player.id}">
              <i class="fa-regular fa-pen-to-square absolute right-0 z-50" style="color: #ffffff;"></i>
              <i class="fa-solid fa-trash absolute left-0 z-50 "  style="color: #ffffff;"></i>
         <!-- Player Card Top-->
@@ -91,7 +91,7 @@ function display(list){
         }
         else{
             playerCard.innerHTML = `
-            <div class="fut-player-card  hover:scale-105 cursor-pointer">
+            <div class="fut-player-card  hover:scale-105 cursor-pointer" data-id="${player.id}">
              <i class="fa-regular fa-pen-to-square absolute right-0 z-50 " style="color: #ffffff;"></i>
              <i class="fa-solid fa-trash absolute left-0 z-50"  style="color: #ffffff;"></i>
         <!-- Player Card Top-->
@@ -156,50 +156,54 @@ if(event.target.classList.contains('fa-trash')){
      
 });
 // edit player
+const editModal = document.querySelector(".edit-modal");
 container.addEventListener('click', (event)=>{
 if(event.target.classList.contains('fa-pen-to-square')){
-     event.target.closest('.cardContainer').remove();
+    
+     editModal.classList.remove("hidden");
+     editModal.classList.add("flex");
 }
      
 });
 
 
 
-document.querySelector('.edit-modal').addEventListener('submit', function (event) {
-  // Prevent the default form submission behavior
-  event.preventDefault();
+// document.querySelector('.edit-modal').addEventListener('submit', function (event) {
+//   // Prevent the default form submission behavior
+//   event.preventDefault();
 
-  // Retrieve form values
-  const playerData = {
-      name: this.elements[0].value,
-      photo: this.elements[1].value,
-      position: this.elements[2].value,
-      nationality: this.elements[3].value,
-      flag: this.elements[4].value,
-      club: this.elements[5].value,
-      logo: this.elements[6].value,
-      rating: parseInt(this.elements[7].value),
-      pace: parseInt(this.elements[8].value),
-      shooting: parseInt(this.elements[9].value),
-      passing: parseInt(this.elements[10].value),
-      dribbling: parseInt(this.elements[11].value),
-      defending: parseInt(this.elements[12].value),
-      physical: parseInt(this.elements[13].value),
-  };
+//   // Retrieve form values
+//   const playerData = {
+//       id: `player-${Date.now()}`,
+//       name: this.elements[0].value,
+//       photo: this.elements[1].value,
+//       position: this.elements[2].value,
+//       nationality: this.elements[3].value,
+//       flag: this.elements[4].value,
+//       club: this.elements[5].value,
+//       logo: this.elements[6].value,
+//       rating: parseInt(this.elements[7].value),
+//       pace: parseInt(this.elements[8].value),
+//       shooting: parseInt(this.elements[9].value),
+//       passing: parseInt(this.elements[10].value),
+//       dribbling: parseInt(this.elements[11].value),
+//       defending: parseInt(this.elements[12].value),
+//       physical: parseInt(this.elements[13].value),
+//   };
 
 
-// Add the new player data to the list
-listPlayers.push(playerData);
+// // Add the new player data to the list
+// listPlayers.push(playerData);
 
-// Save the updated list back into localStorage
-localStorage.setItem('players', JSON.stringify(listPlayers));
-addNewplayerModal.classList.remove('flex');
-addNewplayerModal.classList.add('hidden');
-// Optionally, log to confirm the update
-console.log("Player added:", playerData);
-console.log("Updated players list:", listPlayers);
-this.reset();
-});
+// // Save the updated list back into localStorage
+// localStorage.setItem('players', JSON.stringify(listPlayers));
+// addNewplayerModal.classList.remove('flex');
+// addNewplayerModal.classList.add('hidden');
+// // Optionally, log to confirm the update
+// console.log("Player added:", playerData);
+// console.log("Updated players list:", listPlayers);
+// this.reset();
+// });
 
 display(listPlayers);
 });

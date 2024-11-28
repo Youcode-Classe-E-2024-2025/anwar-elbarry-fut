@@ -33,7 +33,7 @@ function ceratCard(player){
         const playerCard = document.createElement("div");
         if(player.position === "GK"){
             playerCard.innerHTML = `
-            <div class="fut-player-card hover:scale-105 cursor-pointer">
+            <div class="fut-player-card hover:scale-105 cursor-pointer" data-id="${player.id}">
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -78,7 +78,7 @@ function ceratCard(player){
         }
         else{
             playerCard.innerHTML = `
-            <div class="fut-player-card hover:scale-105 cursor-pointer">
+            <div class="fut-player-card hover:scale-105 cursor-pointer" data-id="${player.id}">
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -263,6 +263,7 @@ playersBox.forEach(box => {
 
     // Retrieve form values
     const playerData = {
+        id: `player-${Date.now()}`,
         name: this.elements[0].value,
         photo: this.elements[1].value,
         position: this.elements[2].value,
