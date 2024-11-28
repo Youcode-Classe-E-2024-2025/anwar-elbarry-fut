@@ -1,5 +1,5 @@
 
-
+document.addEventListener('DOMContentLoaded', function() {
  let listPlayers=[];
  // Retrieve the players data from localStorage
  const storedPlayers = localStorage.getItem('players');
@@ -42,7 +42,10 @@ function display(list){
         const playerCard = document.createElement("div");
         if(player.position === "GK"){
             playerCard.innerHTML = `
+           
             <div class="fut-player-card hover:scale-105 cursor-pointer">
+             <i class="fa-regular fa-pen-to-square absolute right-0 z-50" style="color: #ffffff;"></i>
+             <i class="fa-solid fa-trash absolute left-0 z-50 "  style="color: #ffffff;"></i>
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -88,6 +91,8 @@ function display(list){
         else{
             playerCard.innerHTML = `
             <div class="fut-player-card  hover:scale-105 cursor-pointer">
+             <i class="fa-regular fa-pen-to-square absolute right-0 z-50 " style="color: #ffffff;"></i>
+             <i class="fa-solid fa-trash absolute left-0 z-50"  style="color: #ffffff;"></i>
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -133,7 +138,6 @@ function display(list){
        console.log(playerCard);
        console.log(player.position);
        
-       
        if (ALLbox[player.position]) {
         ALLbox[player.position].append(playerCard);
     } else {
@@ -141,4 +145,6 @@ function display(list){
     }
     });
 }
+
 display(listPlayers);
+});
