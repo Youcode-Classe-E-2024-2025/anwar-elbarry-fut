@@ -114,8 +114,6 @@ function ceratCard(player){
         </div>
             `;
         }
-       console.log(playerCard);
-       console.log(player.position);
        return playerCard;
 }
 const stadium = document.querySelector(".stad");
@@ -185,14 +183,19 @@ const modalBox = document.querySelector(".modalPlayer");
 const modalContainer = document.querySelector(".modal_players");
 playersBox.forEach(box => {
    const plus= box.querySelector(".fa-plus");
-    box.addEventListener('click',() =>{
-        const positionSelected = box.getAttribute('data-position');
-        console.log(box);
-        console.log(positionSelected);
+    box.addEventListener('click',(event) =>{
+      
+    //   select the parent of the card
+      const cardContainer = event.target.closest('.card');
+    //   get the data position of the card
+      const positionSelected = box.getAttribute('data-position');
+    //   get nodes list of the cards that contains the seem position
       const playerPosition = listPlayers.filter(player => player.position === positionSelected);
       playerPosition.forEach(player => {
+        // append the cards in the modal
         modalBox.append(ceratCard(player));
       })
+    //    desplay the modal
         box.classList.remove("flex");
         modalContainer.classList.add("flex");
         modalContainer.classList.remove("hidden");
@@ -202,11 +205,19 @@ playersBox.forEach(box => {
         cardsSelected.forEach(card => {
         card.addEventListener('click',()=>{
             modalBox.innerHTML="";
-            
-            box.append(card);
+            // hidde modal
+            box.classList.add("hidden");
+            modalContainer.classList.remove("flex");
+            modalContainer.classList.add("hidden");
+            plus.classList.remove("hidden");
+            // remove old  card
+            cardContainer.innerHTML = "";
+            // append the card 
+            cardContainer.append(card);
     })
 })
     })
+    // hidde the modal when clicked outside
     modalContainer.addEventListener("click",() => {
         modalBox.innerHTML="";
         box.classList.add("flex");
