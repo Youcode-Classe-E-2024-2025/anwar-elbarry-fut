@@ -159,7 +159,7 @@ function studiCards(){
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
                 </div>
-                <div  class="card row-start-5 col-start-5 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
+                <div  class="card row-start-5 col-start-5 col-span-2 flex justify-center bg-red"> <!-- *** fut-player-card ***-->
                     <div data-position="CB" class="fut-player-card cursor-pointer flex">
             <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
                     </div>
