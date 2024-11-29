@@ -293,6 +293,7 @@ const buttons2 = document.querySelector(".buttons2");
   const cancelBtn1 = document.getElementById("cancel1");
   const cancelBtn2 = document.getElementById("cancel2");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
+  
   addNewPlayerBtn.addEventListener('click', ()=> {
          addNewplayerModal.classList.add('flex');
          addNewplayerModal.classList.remove('hidden');
@@ -320,7 +321,7 @@ const buttons2 = document.querySelector(".buttons2");
    buttons2.classList.add('flex');
     });
 
-// cancelBtn2
+// cancelBtn1
 
     cancelBtn1.addEventListener("click",(event)=> {
           event.preventDefault();
@@ -450,12 +451,9 @@ buttons2.classList.remove('flex');
 // cancel btn
 cancelBtn2.addEventListener('click', (e)=> {
   e.preventDefault()
-
-  removeValue()
-
-
   addNewplayerModal.classList.remove('flex');
   addNewplayerModal.classList.add('hidden');
+  removeValue()
 
 })
 
