@@ -31,8 +31,8 @@ const listPlayers = JSON.parse(localStorage.getItem('players'))
 
 function ceratCard(player){
         let nameSize = null;
-        if(player.name.length >= 18){
-            nameSize=0.4;
+        if(player.name.length >= 19){
+            nameSize=0.3;
         }
         const playerCard = document.createElement("div");
         if(player.position === "GK"){
@@ -133,56 +133,67 @@ function studiCards(){
       <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
                     <div data-position="LW" class="fut-player-card cursor-pointer flex hover:scale-105">
                         <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                        <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">LW</h3>
                     </div>
                 </div>
                 <div  class="card row-start-1 flex justify-center col-start-4 col-span-2"> <!-- *** fut-player-card ***-->
                     <div data-position="ST" class="fut-player-card cursor-pointer flex hover:scale-105">
                          <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                         <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">ST</h3>
                     </div>
                 </div>
                 <div  class="card row-start-1 flex justify-center col-start-6 col-span-2 "> <!-- *** fut-player-card ***-->
                     <div data-position="RW" class="fut-player-card cursor-pointer flex hover:scale-105">
                       <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                      <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">RW</h3>
                     </div>
                 </div>
                 <div  class="card row-start-3 col-start-2 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
                     <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
                 <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CM</h3>
                     </div>
                 </div>
                 <div  class="card row-start-3 col-start-4 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
                     <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
                       <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                      <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CM</h3>
                     </div>
                 </div>
                 <div  class="card row-start-3 col-start-6 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
                     <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
                     <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                    <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CM</h3>
                     </div>
                 </div>
                 <div  class="card row-start-5  col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
                     <div data-position="RB" class="fut-player-card cursor-pointer flex hover:scale-105">
                         <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+                        <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">RB</h3>
                     </div>
                 </div>
                 <div  class="card row-start-5 col-start-3 col-span-2 flex justify-center "> <!-- *** fut-player-card ***-->
                     <div data-position="CB" class="fut-player-card cursor-pointer flex hover:scale-105">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+              <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CB</h3>
                     </div>
                 </div>
                 <div  class="card row-start-5 col-start-5 col-span-2 flex justify-center bg-red"> <!-- *** fut-player-card ***-->
                     <div data-position="CB" class="fut-player-card cursor-pointer flex hover:scale-105">
             <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+             <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CB</h3>
                     </div>
                 </div>
                 <div  class="card  row-start-5 col-start-7 col-span-2 flex justify-center"> <!-- *** fut-player-card ***-->
                     <div data-position="LB" class="fut-player-card cursor-pointer flex hover:scale-105">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+               <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">LB</h3>
                     </div>
                 </div>
                 <div  class="card col-start-4 col-span-2 row-start-7 flex justify-center"> <!-- *** fut-player-card ***-->
                     <div data-position="GK" class="fut-player-card cursor-pointer flex hover:scale-105">
               <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+               <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">GK</h3>
                     </div>
                 </div>`
                 return stadium;
@@ -293,7 +304,7 @@ const buttons2 = document.querySelector(".buttons2");
   const cancelBtn1 = document.getElementById("cancel1");
   const cancelBtn2 = document.getElementById("cancel2");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
-  
+
   addNewPlayerBtn.addEventListener('click', ()=> {
          addNewplayerModal.classList.add('flex');
          addNewplayerModal.classList.remove('hidden');
