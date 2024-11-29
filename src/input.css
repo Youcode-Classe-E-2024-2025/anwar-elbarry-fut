@@ -23,3 +23,7 @@
     max-height: 200px; 
 }
  
+
+input {
+    padding: 0.5rem;
+}
