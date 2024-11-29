@@ -77,85 +77,84 @@
 
           <!-- Player Information Form -->
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      
+ <!-- Name Input -->
+ <div class="sm:col-span-4">
+  <label for="Playername" class="block text-sm font-medium text-gray-400">Name</label>
+  <div class="mt-2">
+    <input type="text" pattern="^[a-zA-Z]{4,17}(( )+[a-zA-z]{4,17})*$" oninvalid="setCustomValidity('Please enter in alphabets only.from 1 to 17 letter ')" name="name" id="Playername"
+      class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600" required>
+  </div>
+</div>
 
-            <!-- Name Input -->
-            <div class="sm:col-span-4">
-              <label for="Playername" class="block text-sm font-medium text-gray-400">Name</label>
-              <div class="mt-2">
-                <input type="text" name="name" id="Playername"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
-              </div>
-            </div>
+<!-- Photo Input -->
+<div class="sm:col-span-4">
+  <label for="photo" class="block text-sm font-medium text-gray-400">Photo URL</label>
+  <div class="mt-2">
+    <input type="url" name="photo" id="photo" 
+      class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600" required>
+  </div>
+</div>
 
-            <!-- Photo Input -->
-            <div class="sm:col-span-4">
-              <label for="photo" class="block text-sm font-medium text-gray-400">Photo URL</label>
-              <div class="mt-2">
-                <input type="url" name="photo" id="photo"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
-              </div>
-            </div>
+<!-- Position Input -->
+<div class="sm:col-span-4">
+  <label for="positions" class="block text-sm font-medium text-gray-400">Position</label>
+  <div class="mt-2">
+    <select id="positions"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+      <option selected>Choose a position</option>
+      <option value="ST">ST</option>
+      <option value="RW">RW</option>
+      <option value="RB">RB</option>
+      <option value="LW">LW</option>
+      <option value="CM">CM</option>
+      <option value="CDM">CDM</option>
+      <option value="CB">CB</option>
+      <option value="LB">LB</option>
+      <option value="GK">GK</option>
+    </select>
+  </div>
+</div>
 
-            <!-- Position Input -->
-            <div class="sm:col-span-4">
-              <label for="Playername" class="block text-sm font-medium text-gray-400">Position</label>
-              <div class="mt-2">
-                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an
-                  option</label>
-                <select id="countries"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                  <option selected>Choose a position</option>
-                  <option value="ST">ST</option>
-                  <option value="RW">RW</option>
-                  <option value="RB">RB</option>
-                  <option value="LW">LW</option>
-                  <option value="CM">CM</option>
-                  <option value="CDM">CDM</option>
-                  <option value="CB">CB</option>
-                  <option value="LB">LB</option>
-                  <option value="GK">GK</option>
-                </select>
-              </div>
-            </div>
+<!-- Nationality Input -->
+<div class="sm:col-span-4">
+  <label for="nationality" class="block text-sm font-medium text-gray-400">Nationality</label>
+  <div class="mt-2">
+    <input type="text" name="nationality" id="nationality"
+      class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600" required>
+  </div>
+</div>
 
-            <!-- Nationality Input -->
-            <div class="sm:col-span-4">
-              <label for="nationality" class="block text-sm font-medium text-gray-400">Nationality</label>
-              <div class="mt-2">
-                <input type="text" name="nationality" id="nationality"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
-              </div>
-            </div>
+<!-- Flag Input -->
+<div class="sm:col-span-4">
+  <label for="flag" class="block text-sm font-medium text-gray-400">Flag URL</label>
+  <div class="mt-2">
+    <input type="url" name="flag" id="flag"
+      class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600" required>
+  </div>
+</div>
 
-            <!-- Flag Input -->
-            <div class="sm:col-span-4">
-              <label for="flag" class="block text-sm font-medium text-gray-400">Flag URL</label>
-              <div class="mt-2">
-                <input type="url" name="flag" id="flag"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
-              </div>
-            </div>
+<!-- Club Input -->
+<div class="sm:col-span-4">
+  <label for="club" class="block text-sm font-medium text-gray-400">Club</label>
+  <div class="mt-2">
+    <input type="text" name="club" id="club"
+      class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600" required>
+  </div>
+</div>
 
-            <!-- Club Input -->
-            <div class="sm:col-span-4">
-              <label for="club" class="block text-sm font-medium text-gray-400">Club</label>
-              <div class="mt-2">
-                <input type="text" name="club" id="club"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
-              </div>
-            </div>
-
-            <!-- Logo Input -->
-            <div class="sm:col-span-4">
-              <label for="logo" class="block text-sm font-medium text-gray-400">Club Logo URL</label>
-              <div class="mt-2">
-                <input type="url" name="logo" id="logo"
-                  class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
-              </div>
-            </div>
-
+<!-- Logo Input -->
+<div class="sm:col-span-4">
+  <label for="logo" class="block text-sm font-medium text-gray-400">Club Logo URL</label>
+  <div class="mt-2">
+    <input type="url" name="logo" id="logo"
+      class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600" required>
+  </div>
+</div>
+           
+ 
             <!-- Ratings Section -->
-            <div class="sm:col-span-4">
+            <div id="ratingPlayer" class="sm:col-span-4 hidden">
               <div class="border-b border-gray-400/10 pb-12">
                 <h2 class="text-lg font-semibold text-gray-400">Player Rating</h2>
               </div>
@@ -197,17 +196,71 @@
                 </div>
               </div>
             </div>
+            <!-- Ratings GK Section -->
+            <div id="ratingGK" class="sm:col-span-4 hidden">
+              <div class="border-b border-gray-400/10 pb-12">
+                <h2 class="text-lg font-semibold text-gray-400">Player Rating</h2>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                <div>
+                  <label for="rating" class="block text-sm font-medium text-gray-400">Rating</label>
+                  <input type="number" name="rating" id="rating"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
+                </div>
+                <div>
+                  <label for="diving" class="block text-sm font-medium text-gray-400">diving</label>
+                  <input type="number" name="diving" id="diving"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
+                </div>
+                <div>
+                  <label for="handling" class="block text-sm font-medium text-gray-400">handling</label>
+                  <input type="number" name="handling" id="handling"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
+                </div>
+                <div>
+                  <label for="kicking" class="block text-sm font-medium text-gray-400">kicking</label>
+                  <input type="number" name="kicking" id="kicking"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
+                </div>
+                <div>
+                  <label for="reflexes" class="block text-sm font-medium text-gray-400">reflexes</label>
+                  <input type="number" name="reflexes" id="reflexes"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
+                </div>
+                <div>
+                  <label for="speed" class="block text-sm font-medium text-gray-400">speed</label>
+                  <input type="number" name="speed" id="speed"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
+                </div>
+                <div>
+                  <label for="positioning" class="block text-sm font-medium text-gray-400">positioning</label>
+                  <input type="number" name="positioning" id="positioning"
+                    class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
+                </div>
+              </div>
+            </div>
+            
+             <!-- Submit first Button -->
+  <div class="buttons1 sm:col-span-4 flex justify-around mt-8">
 
-          </div>
+    <button id="submitFirstData"
+      class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
 
-          <!-- Submit Button -->
-          <div class="buttens flex justify-around mt-8">
+    <button id="cancel1"
+      class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
 
-            <button id="submitData" type="submit"
-              class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
+  </div>
 
-            <button id="cancel"
-              class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
+<!-- Submit second Button -->
+<div class="buttons2 sm:col-span-4  justify-around mt-8 hidden">
+
+  <button id="submitSecondData"
+    class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
+
+  <button id="cancel2"
+    class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
+
+</div>
 
           </div>
 
@@ -215,6 +268,8 @@
         </div>
       </form>
     </div>
+
+
 
   </main>
   <footer class="bg-stone-950">

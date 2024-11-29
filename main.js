@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
   }
 
+function removeChild(card){
+       
+}
+
 const listPlayers = JSON.parse(localStorage.getItem('players'))
 
 function ceratCard(player){
@@ -235,59 +239,225 @@ playersBox.forEach(box => {
     })
 })
 
+function removeValue(){
+  const name = document.getElementById('Playername').value;
+  const photo = document.getElementById('photo').value;
+        position = document.getElementById('positions').value;
+  const nationality = document.getElementById('nationality').value;
+  const flag = document.getElementById('flag').value;
+  const club = document.getElementById('club').value;
+  const logo = document.getElementById('logo').value;
+  const rating = document.getElementById('rating').value;
+  const diving = document.getElementById('diving').value;
+  const handling = document.getElementById('handling').value;
+  const kicking = document.getElementById('kicking').value;
+  const reflexes = document.getElementById('reflexes').value;
+  const speed = document.getElementById('speed').value;
+  const positioning = document.getElementById('positioning').value; 
+  const pace = document.getElementById('pace').value;
+  const shooting = document.getElementById('shooting').value;
+  const passing = document.getElementById('passing').value;
+  const dribbling = document.getElementById('dribbling').value;
+  const defending = document.getElementById('defending').value;
+  const physical = document.getElementById('physical').value;
+
+name = "";
+photo = "";
+position = "";
+nationality = "";
+flag = "";
+club = "";
+logo = "";
+rating = "";
+diving = "";
+handling = "";
+kicking = "";
+reflexes = "";
+speed = "";
+positioning = "";
+pace = "";
+shooting = "";
+passing = "";
+dribbling = "";
+defending = "";
+physical = "";
+
+}
+
+const buttons1 = document.querySelector(".buttons1");
+const buttons2 = document.querySelector(".buttons2");
 
   // add New player
 
   const addNewPlayerBtn = document.getElementById("addPlayerBtn");
-  const cancelBtn = document.getElementById("cancel");
-  const submitlBtn = document.getElementById("submitData");
+  const cancelBtn1 = document.getElementById("cancel1");
+  const cancelBtn2 = document.getElementById("cancel2");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
   addNewPlayerBtn.addEventListener('click', ()=> {
          addNewplayerModal.classList.add('flex');
          addNewplayerModal.classList.remove('hidden');
   })
-  cancelBtn.addEventListener('click', (e)=> {
-         e.preventDefault()
-         addNewplayerModal.classList.remove('flex');
-         addNewplayerModal.classList.add('hidden');
-  })
-
+  let newData = {};
   // get informations from the form modal
-
-  document.getElementById('addPlayerForm').addEventListener('submit', function (event) {
+  let position ;
+  document.getElementById('submitFirstData').addEventListener('click', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
     // Retrieve form values
-    const playerData = {
-        id: `player-${Date.now()}`,
-        name: this.elements[0].value,
-        photo: this.elements[1].value,
-        position: this.elements[2].value,
-        nationality: this.elements[3].value,
-        flag: this.elements[4].value,
-        club: this.elements[5].value,
-        logo: this.elements[6].value,
-        rating: parseInt(this.elements[7].value),
-        pace: parseInt(this.elements[8].value),
-        shooting: parseInt(this.elements[9].value),
-        passing: parseInt(this.elements[10].value),
-        dribbling: parseInt(this.elements[11].value),
-        defending: parseInt(this.elements[12].value),
-        physical: parseInt(this.elements[13].value),
-    };
-  
+    position = document.getElementById('positions').value;
+    if(position === "GK"){
+      
+      document.getElementById("ratingGK").classList.remove("hidden");
+    }
+   else{
+    document.getElementById("ratingPlayer").classList.remove("hidden");
+   }
 
+   buttons1.classList.add('hidden');
+   buttons1.classList.remove('flex');
+   buttons2.classList.remove('hidden');
+   buttons2.classList.add('flex');
+    });
+
+// cancelBtn2
+
+    cancelBtn1.addEventListener("click",(event)=> {
+          event.preventDefault();
+      const name = document.getElementById('Playername').value;
+      const photo = document.getElementById('photo').value;
+            position = document.getElementById('positions').value;
+      const nationality = document.getElementById('nationality').value;
+      const flag = document.getElementById('flag').value;
+      const club = document.getElementById('club').value;
+      const logo = document.getElementById('logo').value;
+
+      // make the imputs empty
+
+name.innerHTML = "";
+photo.innerHTML = "";
+position.innerHTML = "";
+nationality.innerHTML = "";
+flag.innerHTML = "";
+club.innerHTML = "";
+logo.innerHTML = "";
+
+addNewplayerModal.classList.remove('flex');
+addNewplayerModal.classList.add('hidden');
+buttons1.classList.remove('hidden');
+buttons1.classList.add('flex');
+
+buttons2.classList.add('hidden');
+buttons2.classList.remove('flex');
+    })
+
+ document.getElementById('submitSecondData').addEventListener('click', function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+    if(position === "GK"){
+      const name = document.getElementById('Playername').value;
+      const photo = document.getElementById('photo').value;
+      position = document.getElementById('positions').value;
+      const nationality = document.getElementById('nationality').value;
+      const flag = document.getElementById('flag').value;
+      const club = document.getElementById('club').value;
+      const logo = document.getElementById('logo').value;
+      const rating = document.getElementById('rating').value;
+      const diving = document.getElementById('diving').value;
+      const handling = document.getElementById('handling').value;
+      const kicking = document.getElementById('kicking').value;
+      const reflexes = document.getElementById('reflexes').value;
+      const speed = document.getElementById('speed').value;
+      const positioning = document.getElementById('positioning').value; 
+
+        newData = {
+        id: `player-${Date.now()}`,
+        name,
+        photo,
+        position,
+        nationality,
+        flag,
+        club,
+        logo,
+        rating,
+        diving,
+        handling,
+        kicking,
+        reflexes,
+        speed,
+        positioning,
+          }
+    }
+    else{
+      // Retrieve form values
+      const name = document.getElementById('Playername').value;
+      const photo = document.getElementById('photo').value;
+      position = document.getElementById('positions').value;
+      const nationality = document.getElementById('nationality').value;
+      const flag = document.getElementById('flag').value;
+      const club = document.getElementById('club').value;
+      const logo = document.getElementById('logo').value;
+      const rating = document.getElementById('rating').value;
+      const pace = document.getElementById('pace').value;
+      const shooting = document.getElementById('shooting').value;
+      const passing = document.getElementById('passing').value;
+      const dribbling = document.getElementById('dribbling').value;
+      const defending = document.getElementById('defending').value;
+      const physical = document.getElementById('physical').value;
+
+      newData = {
+        name,
+        id: `player-${Date.now()}`,
+        photo,
+        position,
+        nationality,
+        flag,
+        club,
+        logo,
+        rating,
+        pace,
+        shooting,
+        passing,
+        dribbling,
+        defending,
+        physical,
+          }
+    }
+
+    
   // Add the new player data to the list
-  listPlayers.push(playerData);
+  listPlayers.push(newData);
 
   // Save the updated list back into localStorage
   localStorage.setItem('players', JSON.stringify(listPlayers));
   addNewplayerModal.classList.remove('flex');
   addNewplayerModal.classList.add('hidden');
   // Optionally, log to confirm the update
-  console.log("Player added:", playerData);
+  console.log("Player added:", newData);
   console.log("Updated players list:", listPlayers);
-  this.reset();
-});
+
+  buttons1.classList.remove('hidden');
+  buttons1.classList.add('flex');
+  
+  buttons2.classList.add('hidden');
+  buttons2.classList.remove('flex');
+
+  removeValue()
+
+    });
+
+
+// cancel btn
+cancelBtn2.addEventListener('click', (e)=> {
+  e.preventDefault()
+
+  removeValue()
+
+
+  addNewplayerModal.classList.remove('flex');
+  addNewplayerModal.classList.add('hidden');
+
+})
+
+
 });
