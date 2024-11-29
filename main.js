@@ -236,9 +236,6 @@ playersBox.forEach(box => {
 })
 
 
- 
-
-
   // add New player
 
   const addNewPlayerBtn = document.getElementById("addPlayerBtn");

@@ -31,7 +31,6 @@ const ALLbox = {
     "LB": lbBox,
     "GK": gkBox,
 }; 
-console.log(ALLbox);
 
 function display(list){
     list.forEach(player => {
@@ -136,9 +135,7 @@ function display(list){
       </div>
             `;
         }
-       console.log(playerCard);
-       console.log(player.position);
-       
+    
        if (ALLbox[player.position]) {
         ALLbox[player.position].append(playerCard);
     } else {
@@ -147,63 +144,143 @@ function display(list){
     });
 }
 
+// function to delet all players
+function deletAll(){
+
+stBox.innerHTML="";
+rwBox.innerHTML="";
+rbBox.innerHTML="";
+lwBox.innerHTML="";
+cmBox.innerHTML="";
+cdmBox.innerHTML="";
+cbBox.innerHTML="";
+lbBox.innerHTML="";
+gkBox.innerHTML="";
+
+}
+
+
+
 // delet player
 const container = document.querySelector(".container");
 container.addEventListener('click', (event)=>{
 if(event.target.classList.contains('fa-trash')){
-     event.target.closest('.cardContainer').remove();
+  const cardContainer = event.target.closest('.fut-player-card');
+  const playerId = cardContainer.getAttribute('data-id');
+
+  list = JSON.parse(localStorage.getItem('players')) || []; 
+
+  const playerIndex = list.findIndex(player=>player.id===playerId);
+
+  list.splice(playerIndex,1);
+  localStorage.setItem('players',JSON.stringify(list));
+  deletAll();
+  display(list)
 }
      
 });
-// edit player
+
+// function to get value from the list
+
+function getDataValue(player){
+       document.getElementById('selectedId').value = player.id;
+       document.getElementById('Playername').value = player.name;
+       document.getElementById('photo').value = player.photo;
+       document.getElementById('positions').value = player.position;
+       document.getElementById('nationality').value = player.nationality;
+       document.getElementById('flag').value = player.flag;
+       document.getElementById('club').value = player.club;
+       document.getElementById('logo').value = player.logo;
+       document.getElementById('rating').value = player.rating;
+       document.getElementById('pace').value = player.pace;
+       document.getElementById('shooting').value = player.shooting;
+       document.getElementById('passing').value = player.passing;
+       document.getElementById('dribbling').value = player.dribbling;
+       document.getElementById('defending').value = player.defending;
+       document.getElementById('physical').value = player.physical;
+}
+// desplay modal
 const editModal = document.querySelector(".edit-modal");
+
 container.addEventListener('click', (event)=>{
+          event.preventDefault()
 if(event.target.classList.contains('fa-pen-to-square')){
-    
+  const cardContainer = event.target.closest('.fut-player-card');
+  const playerId = cardContainer.getAttribute('data-id');
+  
+ const playerSelected= listPlayers.find(player => player.id === playerId);
+  
+  getDataValue(playerSelected);
+
      editModal.classList.remove("hidden");
      editModal.classList.add("flex");
 }
      
 });
+// hidde the modal
+const cancelBtn = document.getElementById("cancel");
+cancelBtn.addEventListener('click', ()=>{
+     
+     editModal.classList.add("hidden");
+     editModal.classList.remove("flex");
+    
+});
 
 
-
-// document.querySelector('.edit-modal').addEventListener('submit', function (event) {
-//   // Prevent the default form submission behavior
-//   event.preventDefault();
-
-//   // Retrieve form values
-//   const playerData = {
-//       id: `player-${Date.now()}`,
-//       name: this.elements[0].value,
-//       photo: this.elements[1].value,
-//       position: this.elements[2].value,
-//       nationality: this.elements[3].value,
-//       flag: this.elements[4].value,
-//       club: this.elements[5].value,
-//       logo: this.elements[6].value,
-//       rating: parseInt(this.elements[7].value),
-//       pace: parseInt(this.elements[8].value),
-//       shooting: parseInt(this.elements[9].value),
-//       passing: parseInt(this.elements[10].value),
-//       dribbling: parseInt(this.elements[11].value),
-//       defending: parseInt(this.elements[12].value),
-//       physical: parseInt(this.elements[13].value),
-//   };
+document.getElementById('submitData').addEventListener('click', function (event) {
+          event.preventDefault();
+          console.log("newData");
+  // Retrieve form values
+  const name = document.getElementById('Playername').value;
+  const id = document.getElementById('selectedId').value;
+  const photo = document.getElementById('photo').value;
+  const position = document.getElementById('positions').value;
+  const nationality = document.getElementById('nationality').value;
+  const flag = document.getElementById('flag').value;
+  const club = document.getElementById('club').value;
+  const logo = document.getElementById('logo').value;
+  const rating = document.getElementById('rating').value;
+  const pace = document.getElementById('pace').value;
+  const shooting = document.getElementById('shooting').value;
+  const passing = document.getElementById('passing').value;
+  const dribbling = document.getElementById('dribbling').value;
+  const defending = document.getElementById('defending').value;
+  const physical = document.getElementById('physical').value;
 
 
-// // Add the new player data to the list
-// listPlayers.push(playerData);
+  const newData = {
+name,
+id,
+photo,
+position,
+nationality,
+flag,
+club,
+logo,
+rating,
+pace,
+shooting,
+passing,
+dribbling,
+defending,
+physical,
+  }
+// Add the new player data to the list
+console.log(newData);
 
-// // Save the updated list back into localStorage
-// localStorage.setItem('players', JSON.stringify(listPlayers));
-// addNewplayerModal.classList.remove('flex');
-// addNewplayerModal.classList.add('hidden');
-// // Optionally, log to confirm the update
-// console.log("Player added:", playerData);
-// console.log("Updated players list:", listPlayers);
-// this.reset();
-// });
+
+// Save the updated list back into localStorage
+list = JSON.parse(localStorage.getItem('players')) || []; 
+const index = list.findIndex(playerD=>playerD.id===newData.id);
+list.splice(index,1,newData);
+
+localStorage.setItem('players',JSON.stringify(list));
+deletAll();
+ display(list)
+editModal.classList.remove('flex');
+editModal.classList.add('hidden');
+
+});
 
 display(listPlayers);
 });
