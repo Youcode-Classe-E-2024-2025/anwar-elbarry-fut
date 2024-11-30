@@ -312,7 +312,7 @@ const buttons2 = document.querySelector(".buttons2");
   let newData = {};
   // get informations from the form modal
   let position ;
-  document.getElementById('submitFirstData').addEventListener('click', function (event) {
+  document.getElementById('submit1').addEventListener('click', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
@@ -320,10 +320,10 @@ const buttons2 = document.querySelector(".buttons2");
     position = document.getElementById('positions').value;
     if(position === "GK"){
       
-      document.getElementById("ratingGK").classList.remove("hidden");
+      document.getElementById("addPlayerForm-RatingGK").classList.remove("hidden");
     }
    else{
-    document.getElementById("ratingPlayer").classList.remove("hidden");
+    document.getElementById("addPlayerForm-Rating").classList.remove("hidden");
    }
 
    buttons1.classList.add('hidden');
@@ -363,34 +363,46 @@ buttons2.classList.add('hidden');
 buttons2.classList.remove('flex');
     })
 
- document.getElementById('submitSecondData').addEventListener('click', function (event) {
+
+function getDataForm1(){
+  const name = document.getElementById('Playername').value;
+  const photo = document.getElementById('photo').value;
+  position = document.getElementById('positions').value;
+  const nationality = document.getElementById('nationality').value;
+  const flag = document.getElementById('flag').value;
+  const club = document.getElementById('club').value;
+  const logo = document.getElementById('logo').value;
+}
+function getDataForm2(){
+  const rating = document.getElementById('rating').value;
+  const pace = document.getElementById('pace').value;
+  const shooting = document.getElementById('shooting').value;
+  const passing = document.getElementById('passing').value;
+  const dribbling = document.getElementById('dribbling').value;
+  const defending = document.getElementById('defending').value;
+  const physical = document.getElementById('physical').value;
+}
+function getDataFormGK(){
+  const rating = document.getElementById('rating').value;
+  const diving = document.getElementById('diving').value;
+  const handling = document.getElementById('handling').value;
+  const kicking = document.getElementById('kicking').value;
+  const reflexes = document.getElementById('reflexes').value;
+  const speed = document.getElementById('speed').value;
+  const positioning = document.getElementById('positioning').value; 
+}
+
+
+
+
+ document.getElementById('submit3').addEventListener('click', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
-    if(position === "GK"){
-      const name = document.getElementById('Playername').value;
-      const photo = document.getElementById('photo').value;
-      position = document.getElementById('positions').value;
-      const nationality = document.getElementById('nationality').value;
-      const flag = document.getElementById('flag').value;
-      const club = document.getElementById('club').value;
-      const logo = document.getElementById('logo').value;
-      const rating = document.getElementById('rating').value;
-      const diving = document.getElementById('diving').value;
-      const handling = document.getElementById('handling').value;
-      const kicking = document.getElementById('kicking').value;
-      const reflexes = document.getElementById('reflexes').value;
-      const speed = document.getElementById('speed').value;
-      const positioning = document.getElementById('positioning').value; 
-
-        newData = {
-        id: `player-${Date.now()}`,
-        name,
-        photo,
-        position,
-        nationality,
-        flag,
-        club,
-        logo,
+    
+        getDataFormGK();
+        
+        gkData = {
+       
         rating,
         diving,
         handling,
@@ -399,42 +411,6 @@ buttons2.classList.remove('flex');
         speed,
         positioning,
           }
-    }
-    else{
-      // Retrieve form values
-      const name = document.getElementById('Playername').value;
-      const photo = document.getElementById('photo').value;
-      position = document.getElementById('positions').value;
-      const nationality = document.getElementById('nationality').value;
-      const flag = document.getElementById('flag').value;
-      const club = document.getElementById('club').value;
-      const logo = document.getElementById('logo').value;
-      const rating = document.getElementById('rating').value;
-      const pace = document.getElementById('pace').value;
-      const shooting = document.getElementById('shooting').value;
-      const passing = document.getElementById('passing').value;
-      const dribbling = document.getElementById('dribbling').value;
-      const defending = document.getElementById('defending').value;
-      const physical = document.getElementById('physical').value;
-
-      newData = {
-        name,
-        id: `player-${Date.now()}`,
-        photo,
-        position,
-        nationality,
-        flag,
-        club,
-        logo,
-        rating,
-        pace,
-        shooting,
-        passing,
-        dribbling,
-        defending,
-        physical,
-          }
-    }
 
     
   // Add the new player data to the list

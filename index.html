@@ -56,8 +56,9 @@
     </div>
 
     <!-- addNew player modal -->
-    <div class="addNewplayer-modal hidden absolute z-10  h-full w-full  justify-center items-center overflow-y-auto">
-      <form id="addPlayerForm" class="bg-cyan-950 w-3/6 h-4/5 overflow-y-auto rounded p-7">
+    <div class="addNewplayer-modal  absolute z-10  h-full w-full  justify-center items-center overflow-y-auto hidden">
+           <!-- global information Section -->
+          <form id="addPlayerForm" class="bg-cyan-950 w-3/6 h-4/5 overflow-y-auto rounded p-7">
         <div class="space-y-12">
 
           <!-- Section Title and Description -->
@@ -141,10 +142,21 @@
       class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600" required>
   </div>
 </div>
-           
- 
+       <!-- Submit first Button -->
+       <div class="buttons1 sm:col-span-6 flex justify-around mt-8">
+
+        <button id="submit1"
+          class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
+    
+        <button id="cancel1"
+          class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
+    
+      </div>
+          </form>
+            <!-- Ratings other Section -->
+          <form id="addPlayerForm-Rating" class="bg-cyan-950 w-3/6 h-4/5 overflow-y-auto rounded p-7 hidden">
             <!-- Ratings Section -->
-            <div id="ratingPlayer" class="sm:col-span-4 hidden">
+            <div id="ratingPlayer" class="sm:col-span-4 ">
               <div class="border-b border-gray-400/10 pb-12">
                 <h2 class="text-lg font-semibold text-gray-400">Player Rating</h2>
               </div>
@@ -186,8 +198,19 @@
                 </div>
               </div>
             </div>
+            <!-- Submit second Button -->
+       <div class="buttons2 sm:col-span-6 flex justify-around mt-8">
+
+        <button id="submit2"
+          class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
+    
+        <button id="cancel2"
+          class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
+    
+      </div>
+          </form>
             <!-- Ratings GK Section -->
-            <div id="ratingGK" class="sm:col-span-4 hidden">
+          <form id="addPlayerForm-RatingGK" class="sm:col-span-4 hidden">
               <div class="border-b border-gray-400/10 pb-12">
                 <h2 class="text-lg font-semibold text-gray-400">Player Rating</h2>
               </div>
@@ -228,38 +251,18 @@
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-600 focus:border-indigo-600">
                 </div>
               </div>
-            </div>
-            
-             <!-- Submit first Button -->
-  <div class="buttons1 sm:col-span-6 flex justify-around mt-8">
+              <!-- Submit thirth Button -->
+       <div class="buttons3 sm:col-span-6 flex justify-around mt-8">
 
-    <button id="submitFirstData"
-      class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
-
-    <button id="cancel1"
-      class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
-
-  </div>
-
-<!-- Submit second Button -->
-<div class="buttons2 sm:col-span-4  justify-around mt-8 hidden">
-
-  <button id="submitSecondData"
-    class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
-
-  <button id="cancel2"
-    class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
-
-</div>
-
-          </div>
-
-
-        </div>
-      </form>
-    </div>
-
-
+        <button id="submit3"
+          class="px-6 py-2 bg-indigo-600 text-white rounded-md focus:ring-2 focus:ring-indigo-600">Submit</button>
+    
+        <button id="cancel3"
+          class="px-6 py-2 bg-red-600 text-white rounded-md focus:ring-2 focus:ring-red-600">cancel</button>
+    
+      </div>
+          </form>
+     </div>
 
   </main>
   <footer class="bg-stone-950">
