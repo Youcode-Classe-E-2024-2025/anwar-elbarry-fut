@@ -215,7 +215,6 @@ playersBox.forEach(box => {
       
       playerPosition.forEach(player => {
         // append the cards in the modal
-        
         modalBox.append(ceratCard(player));
       })
     //    desplay the modal
@@ -249,22 +248,46 @@ playersBox.forEach(box => {
         plus.classList.remove("hidden");
     })
 })
+// forms
+const globalForm = document.getElementById("addPlayerForm");
+const formRatingGK = document.getElementById("addPlayerForm-RatingGK");
+const formRating = document.getElementById("addPlayerForm-Rating");
 
-function removeValue(){
+
+// buttens
+const submitBtn1 = document.getElementById('submit1');
+const submitBtn2 = document.getElementById('submit2');
+const submitBtn3 = document.getElementById('submit3');
+const cancelBtn1 = document.getElementById("cancel1");
+const cancelBtn2 = document.getElementById("cancel2");
+const cancelBtn3 = document.getElementById("cancel3");
+
+// functions to get values from the forms
+
+function getDataForm1(){
   const name = document.getElementById('Playername').value;
   const photo = document.getElementById('photo').value;
-        position = document.getElementById('positions').value;
+  const position = document.getElementById('positions').value;
   const nationality = document.getElementById('nationality').value;
   const flag = document.getElementById('flag').value;
   const club = document.getElementById('club').value;
   const logo = document.getElementById('logo').value;
+
+  let globalData = {
+    name,
+    photo,
+    position,
+    nationality,
+    flag,
+    club,
+    logo
+}
+return globalData;
+}
+
+
+function getDataForm2(){
   const rating = document.getElementById('rating').value;
-  const diving = document.getElementById('diving').value;
-  const handling = document.getElementById('handling').value;
-  const kicking = document.getElementById('kicking').value;
-  const reflexes = document.getElementById('reflexes').value;
-  const speed = document.getElementById('speed').value;
-  const positioning = document.getElementById('positioning').value; 
   const pace = document.getElementById('pace').value;
   const shooting = document.getElementById('shooting').value;
   const passing = document.getElementById('passing').value;
@@ -272,65 +295,75 @@ function removeValue(){
   const defending = document.getElementById('defending').value;
   const physical = document.getElementById('physical').value;
 
-name = "";
-photo = "";
-position = "";
-nationality = "";
-flag = "";
-club = "";
-logo = "";
-rating = "";
-diving = "";
-handling = "";
-kicking = "";
-reflexes = "";
-speed = "";
-positioning = "";
-pace = "";
-shooting = "";
-passing = "";
-dribbling = "";
-defending = "";
-physical = "";
+  let OtherRatingData = {
+      rating,
+      pace,
+      shooting,
+      passing,
+      dribbling,
+      defending,
+      physical
+  };
 
+  return OtherRatingData;
 }
 
-const buttons1 = document.querySelector(".buttons1");
-const buttons2 = document.querySelector(".buttons2");
 
-  // add New player
+function getDataFormGK(){
+  const rating = document.getElementById('rating').value;
+  const diving = document.getElementById('diving').value;
+  const handling = document.getElementById('handling').value;
+  const kicking = document.getElementById('kicking').value;
+  const reflexes = document.getElementById('reflexes').value;
+  const speed = document.getElementById('speed').value;
+  const positioning = document.getElementById('positioning').value; 
+
+  let gkRatingData = {
+         rating,
+         diving,
+         handling,
+         kicking,
+         reflexes,
+         speed,
+         positioning
+  };  
+
+  return gkRatingData;
+}
+
+  
 
   const addNewPlayerBtn = document.getElementById("addPlayerBtn");
-  const cancelBtn1 = document.getElementById("cancel1");
-  const cancelBtn2 = document.getElementById("cancel2");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
-
+  
+// add New player
   addNewPlayerBtn.addEventListener('click', ()=> {
          addNewplayerModal.classList.add('flex');
          addNewplayerModal.classList.remove('hidden');
   })
-  let newData = {};
+
+  
+  
   // get informations from the form modal
-  let position ;
-  document.getElementById('submit1').addEventListener('click', function (event) {
+
+ submitBtn1.addEventListener('click', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-    // Retrieve form values
-    position = document.getElementById('positions').value;
-    if(position === "GK"){
-      
-      document.getElementById("addPlayerForm-RatingGK").classList.remove("hidden");
+   const globalData = getDataForm1();
+   
+    if(globalData.position === "GK"){
+      formRatingGK.classList.remove("hidden");
     }
    else{
-    document.getElementById("addPlayerForm-Rating").classList.remove("hidden");
+    formRating.classList.remove("hidden");
    }
 
-   buttons1.classList.add('hidden');
-   buttons1.classList.remove('flex');
-   buttons2.classList.remove('hidden');
-   buttons2.classList.add('flex');
+   
+console.log(globalData);
+
     });
+    
 
 // cancelBtn1
 
@@ -356,53 +389,18 @@ logo.innerHTML = "";
 
 addNewplayerModal.classList.remove('flex');
 addNewplayerModal.classList.add('hidden');
-buttons1.classList.remove('hidden');
-buttons1.classList.add('flex');
 
-buttons2.classList.add('hidden');
-buttons2.classList.remove('flex');
     })
 
 
-function getDataForm1(){
-  const name = document.getElementById('Playername').value;
-  const photo = document.getElementById('photo').value;
-  position = document.getElementById('positions').value;
-  const nationality = document.getElementById('nationality').value;
-  const flag = document.getElementById('flag').value;
-  const club = document.getElementById('club').value;
-  const logo = document.getElementById('logo').value;
-}
-function getDataForm2(){
-  const rating = document.getElementById('rating').value;
-  const pace = document.getElementById('pace').value;
-  const shooting = document.getElementById('shooting').value;
-  const passing = document.getElementById('passing').value;
-  const dribbling = document.getElementById('dribbling').value;
-  const defending = document.getElementById('defending').value;
-  const physical = document.getElementById('physical').value;
-}
-function getDataFormGK(){
-  const rating = document.getElementById('rating').value;
-  const diving = document.getElementById('diving').value;
-  const handling = document.getElementById('handling').value;
-  const kicking = document.getElementById('kicking').value;
-  const reflexes = document.getElementById('reflexes').value;
-  const speed = document.getElementById('speed').value;
-  const positioning = document.getElementById('positioning').value; 
-}
 
-
-
-
- document.getElementById('submit3').addEventListener('click', function (event) {
+submitBtn3.addEventListener('click', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
     
         getDataFormGK();
         
         gkData = {
-       
         rating,
         diving,
         handling,
@@ -423,12 +421,6 @@ function getDataFormGK(){
   // Optionally, log to confirm the update
   console.log("Player added:", newData);
   console.log("Updated players list:", listPlayers);
-
-  buttons1.classList.remove('hidden');
-  buttons1.classList.add('flex');
-  
-  buttons2.classList.add('hidden');
-  buttons2.classList.remove('flex');
 
   removeValue()
 
