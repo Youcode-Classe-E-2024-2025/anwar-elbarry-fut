@@ -43,9 +43,9 @@ function display(list){
         if(player.position === "GK"){
             playerCard.innerHTML = `
            
-            <div class="fut-player-card hover:scale-105 cursor-pointer" data-id="${player.id}">
-             <i class="fa-regular fa-pen-to-square absolute right-0 z-50" style="color: #ffffff;"></i>
-             <i class="fa-solid fa-trash absolute left-0 z-50 "  style="color: #ffffff;"></i>
+            <div class="fut-player-card  cursor-pointer" data-id="${player.id}">
+             <i class="fa-regular fa-pen-to-square absolute right-0 z-5"></i>
+             <i class="fa-solid fa-trash absolute left-0 z-50   "></i>
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -90,9 +90,9 @@ function display(list){
         }
         else{
             playerCard.innerHTML = `
-            <div class="fut-player-card  hover:scale-105 cursor-pointer" data-id="${player.id}">
-             <i class="fa-regular fa-pen-to-square absolute right-0 z-50 " style="color: #ffffff;"></i>
-             <i class="fa-solid fa-trash absolute left-0 z-50"  style="color: #ffffff;"></i>
+            <div class="fut-player-card   cursor-pointer" data-id="${player.id}">
+             <i class="fa-regular fa-pen-to-square absolute right-0 z-50 "></i>
+             <i class="fa-solid fa-trash absolute left-0 z-50  "></i>
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">

@@ -135,3 +135,15 @@
     color: #fff;
     font-size: 20px;
 }
+.fa-trash {
+  color: #fff;
+}
+.fa-pen-to-square{
+  color: #fff;
+}
+.fa-trash:hover {
+  color: #ff0000;
+}
+.fa-pen-to-square:hover{
+  color: #00ff4c;
+}
