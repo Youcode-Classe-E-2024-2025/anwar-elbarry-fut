@@ -138,3 +138,27 @@
     color: #fff;
     font-size: 20px;
 }
+
+.inputControl.success input{
+  border:3px solid green;
+}
+.inputControl.error input{
+  border:3px solid red;
+}
+.inputControl.success select{
+  border:3px solid green;
+}
+.inputControl.error select{
+  border:3px solid red;
+}
+.inputControl .error{
+  color: red;
+  font-size: 0.75rem;
+  padding: 0.3rem;
+}
+.inputControl input:focus {
+  outline: 0;
+}
+.inputControl select:focus {
+  outline: 0;
+}

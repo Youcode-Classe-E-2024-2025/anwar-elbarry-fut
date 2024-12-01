@@ -23,11 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
   }
 
-function removeChild(card){
-       
-}
-
 const listPlayers = JSON.parse(localStorage.getItem('players'))
+
 
 function ceratCard(player){
         let nameSize = null;
@@ -127,6 +124,7 @@ function ceratCard(player){
         }
        return playerCard;
 }
+
 const stadium = document.querySelector(".stad");
 function studiCards(){
       stadium.innerHTML = `
@@ -198,10 +196,12 @@ function studiCards(){
                 </div>`
                 return stadium;
 }
+
 studiCards()
 const playersBox = document.querySelectorAll(".fut-player-card");
 const modalBox = document.querySelector(".modalPlayer");
 const modalContainer = document.querySelector(".modal_players");
+
 playersBox.forEach(box => {
    const plus= box.querySelector(".fa-plus");
     box.addEventListener('click',(event) =>{
@@ -248,6 +248,7 @@ playersBox.forEach(box => {
         plus.classList.remove("hidden");
     })
 })
+
 // forms
 const globalForm = document.getElementById("addPlayerForm");
 const formRatingGK = document.getElementById("addPlayerForm-RatingGK");
@@ -255,22 +256,23 @@ const formRating = document.getElementById("addPlayerForm-Rating");
 
 
 // buttens
-const submitBtn1 = document.getElementById('submit1');
-const submitBtn2 = document.getElementById('submit2');
-const submitBtn3 = document.getElementById('submit3');
+// const submitBtn1 = document.getElementById('submit1');
+// const submitBtn2 = document.getElementById('submit2');
+// const submitBtn3 = document.getElementById('submit3');
 const cancelBtn1 = document.getElementById("cancel1");
 const cancelBtn2 = document.getElementById("cancel2");
 const cancelBtn3 = document.getElementById("cancel3");
 
+
 // functions to get values from the forms
 
 function getDataForm1(){
-  const name = document.getElementById('Playername').value;
+  const name = document.getElementById('Playername').value.trim();
   const photo = document.getElementById('photo').value;
   const position = document.getElementById('positions').value;
   const nationality = document.getElementById('nationality').value;
   const flag = document.getElementById('flag').value;
-  const club = document.getElementById('club').value;
+  const club = document.getElementById('club').value.trim();
   const logo = document.getElementById('logo').value;
 
   let globalData = {
@@ -332,8 +334,173 @@ function getDataFormGK(){
   return gkRatingData;
 }
 
-  
+// select inputs
+function getinputsForm1(){
+  const name = document.getElementById('Playername');
+  const photo = document.getElementById('photo');
+  const position = document.getElementById('positions');
+  const nationality = document.getElementById('nationality');
+  const flag = document.getElementById('flag');
+  const club = document.getElementById('club');
+  const logo = document.getElementById('logo');
 
+  let globalinputs = {
+    name,
+    photo,
+    position,
+    nationality,
+    flag,
+    club,
+    logo
+}
+return globalinputs;
+}
+
+
+function getinputsForm2(){
+  const rating = document.getElementById('rating');
+  const pace = document.getElementById('pace');
+  const shooting = document.getElementById('shooting');
+  const passing = document.getElementById('passing');
+  const dribbling = document.getElementById('dribbling');
+  const defending = document.getElementById('defending');
+  const physical = document.getElementById('physical');
+
+  let OtherRatinginputs = {
+      rating,
+      pace,
+      shooting,
+      passing,
+      dribbling,
+      defending,
+      physical
+  };
+
+  return OtherRatinginputs;
+}
+
+
+function getinputsFormGK(){
+  const rating = document.getElementById('rating2');
+  const diving = document.getElementById('diving');
+  const handling = document.getElementById('handling');
+  const kicking = document.getElementById('kicking');
+  const reflexes = document.getElementById('reflexes');
+  const speed = document.getElementById('speed');
+  const positioning = document.getElementById('positioning'); 
+
+  let gkRatinginputs = {
+         rating,
+         diving,
+         handling,
+         kicking,
+         reflexes,
+         speed,
+         positioning
+  };  
+
+  return gkRatinginputs;
+}
+ 
+// VALIDATION FUNCTIONS
+
+// set error
+function setError(element,message){
+  const inputControl = element.parentElement;
+  const erroeDesplay = inputControl.querySelector(".error");
+
+  erroeDesplay.innerHTML = message;
+  inputControl.classList.add('error');
+  inputControl.classList.remove('success');
+}
+
+// set success
+function setSuccess(element){
+
+  const inputControl = element.parentElement;
+  const erroeDesplay = inputControl.querySelector(".error");
+
+  erroeDesplay.innerHTML = "";
+  inputControl.classList.add('success');
+  inputControl.classList.remove('error');
+  
+}
+
+
+
+
+// validate global form 
+function isvalidateForm1(counter){
+
+  const globalData = getDataForm1();
+  const globalinputs = getinputsForm1();
+  // name
+  if(globalData.name === ''){
+    setError(globalinputs.name,'player name is required');
+  }
+  else{
+    setSuccess(globalinputs.name);
+    counter++;
+  }
+
+  // position
+
+  if(globalData.position === 'Choose a position'){
+    setError(globalinputs.position,'player position is required');
+  }
+  else{
+    setSuccess(globalinputs.position);
+    counter++;
+  }
+  // club
+  if(globalData.club === ''){
+    setError(globalinputs.club,'player club is required');
+  }
+  else{
+    setSuccess(globalinputs.club);
+    counter++;
+  }
+  // flag
+  if(globalData.flag === ''){
+    setError(globalinputs.flag,'flag url is required');
+  }
+  else{
+    setSuccess(globalinputs.flag);
+    counter++;
+  }
+
+  // logo
+
+  if(globalData.logo === ''){
+    setError(globalinputs.logo,'club logo url is required');
+  }
+  else{
+    setSuccess(globalinputs.logo);
+    counter++;
+  }
+
+  // nationality
+
+  if(globalData.nationality === ''){
+    setError(globalinputs.nationality,'player nationality is required');
+  }
+  else{
+    setSuccess(globalinputs.nationality);
+    counter++;
+  }
+
+  // photo
+
+  if(globalData.photo === ''){
+    setError(globalinputs.photo,'player photo is required');
+  }
+  else{
+    setSuccess(globalinputs.photo);
+    counter++;
+  }
+
+  return counter;
+}
   const addNewPlayerBtn = document.getElementById("addPlayerBtn");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
   
@@ -347,22 +514,35 @@ function getDataFormGK(){
   let globalData;
   // get informations from the form modal
 
- submitBtn1.addEventListener('click', function (event) {
+ globalForm.addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
-
+   let counter =0;
     globalData = getDataForm1();
-   
+   counter = isvalidateForm1(counter);
+  if(counter < 7){
+    return;
+  }
+  else{
     if(globalData.position === "GK"){
       formRatingGK.classList.toggle("hidden");
-      
+     
     }
    else{
     formRating.classList.toggle("hidden");
+    
    }
-
    globalForm.classList.toggle("hidden");
+   const inputControl= document.querySelectorAll('.inputControl');
+   inputControl.forEach(control => {
+  
+    control.classList.remove('error');
+    control.classList.remove('success');
+    
+   })
    globalForm.reset();
+  }
+ 
     });
     
 
@@ -371,11 +551,17 @@ function getDataFormGK(){
     cancelBtn1.addEventListener("click",(event)=> {
           event.preventDefault();
           globalForm.reset();
-          globalForm.classList.toggle("hidden");
-         
 
-addNewplayerModal.classList.toggle('flex');
-addNewplayerModal.classList.toggle('hidden');
+          const inputControl= document.querySelectorAll('.inputControl');
+          inputControl.forEach(control => {
+            const error = control.querySelector(".error");
+            error.innerHTML  = "";
+           control.classList.remove('error');
+           control.classList.remove('success');
+          })
+         
+          addNewplayerModal.classList.toggle('flex');
+          addNewplayerModal.classList.toggle('hidden');
 
     })
     cancelBtn2.addEventListener("click",(event)=> {
@@ -400,7 +586,7 @@ addNewplayerModal.classList.toggle('hidden');
     })
 
 
-    submitBtn2.addEventListener('click', (e)=> {
+    formRating.addEventListener('submit', (e)=> {
       e.preventDefault()
     
         
@@ -426,7 +612,7 @@ addNewplayerModal.classList.toggle('hidden');
     
     })
 
-submitBtn3.addEventListener('click', function (event) {
+formRatingGK.addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
     
