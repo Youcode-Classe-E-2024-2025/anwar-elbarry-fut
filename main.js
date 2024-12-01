@@ -274,6 +274,7 @@ function getDataForm1(){
   const logo = document.getElementById('logo').value;
 
   let globalData = {
+    id:Date.now(),
     name,
     photo,
     position,
@@ -310,7 +311,7 @@ function getDataForm2(){
 
 
 function getDataFormGK(){
-  const rating = document.getElementById('rating').value;
+  const rating = document.getElementById('rating2').value;
   const diving = document.getElementById('diving').value;
   const handling = document.getElementById('handling').value;
   const kicking = document.getElementById('kicking').value;
@@ -338,103 +339,117 @@ function getDataFormGK(){
   
 // add New player
   addNewPlayerBtn.addEventListener('click', ()=> {
-         addNewplayerModal.classList.add('flex');
-         addNewplayerModal.classList.remove('hidden');
+         addNewplayerModal.classList.toggle('flex');
+         addNewplayerModal.classList.toggle('hidden');
   })
 
   
-  
+  let globalData;
   // get informations from the form modal
 
  submitBtn1.addEventListener('click', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
-   const globalData = getDataForm1();
+    globalData = getDataForm1();
    
     if(globalData.position === "GK"){
-      formRatingGK.classList.remove("hidden");
+      formRatingGK.classList.toggle("hidden");
+      
     }
    else{
-    formRating.classList.remove("hidden");
+    formRating.classList.toggle("hidden");
    }
 
-   
-console.log(globalData);
-
+   globalForm.classList.toggle("hidden");
+   globalForm.reset();
     });
     
 
-// cancelBtn1
+// cancelBtns
 
     cancelBtn1.addEventListener("click",(event)=> {
           event.preventDefault();
-      const name = document.getElementById('Playername').value;
-      const photo = document.getElementById('photo').value;
-            position = document.getElementById('positions').value;
-      const nationality = document.getElementById('nationality').value;
-      const flag = document.getElementById('flag').value;
-      const club = document.getElementById('club').value;
-      const logo = document.getElementById('logo').value;
+          globalForm.reset();
+          globalForm.classList.toggle("hidden");
+         
 
-      // make the imputs empty
+addNewplayerModal.classList.toggle('flex');
+addNewplayerModal.classList.toggle('hidden');
 
-name.innerHTML = "";
-photo.innerHTML = "";
-position.innerHTML = "";
-nationality.innerHTML = "";
-flag.innerHTML = "";
-club.innerHTML = "";
-logo.innerHTML = "";
+    })
+    cancelBtn2.addEventListener("click",(event)=> {
+          event.preventDefault();
+          formRating.reset();
+          globalForm.classList.toggle("hidden");
+          formRating.classList.toggle("hidden");
+addNewplayerModal.classList.toggle('flex');
+addNewplayerModal.classList.toggle('hidden');
 
-addNewplayerModal.classList.remove('flex');
-addNewplayerModal.classList.add('hidden');
+    })
+    cancelBtn3.addEventListener("click",(event)=> {
+          event.preventDefault();
+          formRating.reset();
+
+          globalForm.classList.toggle("hidden");
+          formRatingGK.classList.toggle("hidden");
+
+addNewplayerModal.classList.toggle('flex');
+addNewplayerModal.classList.toggle('hidden');
 
     })
 
 
+    submitBtn2.addEventListener('click', (e)=> {
+      e.preventDefault()
+    
+        
+    const  OtherRatingData =  getDataForm2();
+          
+          Object.assign(globalData, OtherRatingData);
+      
+    
+      // Add the new player data to the list
+      listPlayers.push(globalData);
+    
+      // Save the updated list back into localStorage
+      localStorage.setItem('players', JSON.stringify(listPlayers));
+      addNewplayerModal.classList.toggle('flex');
+      addNewplayerModal.classList.toggle('hidden');
+      globalForm.classList.toggle("hidden");
+      formRating.classList.toggle("hidden");
+      // Optionally, log to confirm the update
+      console.log("Player added:", globalData);
+      console.log("Updated players list:", listPlayers);
+
+      formRating.reset();
+    
+    })
 
 submitBtn3.addEventListener('click', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
     
-        getDataFormGK();
+   const gkRatingData =  getDataFormGK();
         
-        gkData = {
-        rating,
-        diving,
-        handling,
-        kicking,
-        reflexes,
-        speed,
-        positioning,
-          }
-
+        Object.assign(globalData, gkRatingData);
     
   // Add the new player data to the list
-  listPlayers.push(newData);
+  listPlayers.push(globalData);
 
   // Save the updated list back into localStorage
   localStorage.setItem('players', JSON.stringify(listPlayers));
-  addNewplayerModal.classList.remove('flex');
-  addNewplayerModal.classList.add('hidden');
+  addNewplayerModal.classList.toggle('flex');
+  addNewplayerModal.classList.toggle('hidden');
+  globalForm.classList.toggle("hidden");
+  formRatingGK.classList.toggle("hidden");
   // Optionally, log to confirm the update
-  console.log("Player added:", newData);
+  console.log("Player added:", globalData);
   console.log("Updated players list:", listPlayers);
 
-  removeValue()
+  formRatingGK.reset();
 
     });
-
-
-// cancel btn
-cancelBtn2.addEventListener('click', (e)=> {
-  e.preventDefault()
-  addNewplayerModal.classList.remove('flex');
-  addNewplayerModal.classList.add('hidden');
-  removeValue()
-
-})
 
 
 });
