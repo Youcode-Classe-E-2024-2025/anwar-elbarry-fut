@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // localStorage.clear();
   if(!localStorage.getItem('players')){
     
-    fetch("FUT-Champ-Ultimate-Team-Assets/players.json")
+    fetch("FUT-Champ/players.json")
     .then(Response =>{ 
         if(!Response.ok){
             console.log("error");
