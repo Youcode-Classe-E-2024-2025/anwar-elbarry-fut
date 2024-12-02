@@ -263,46 +263,51 @@ cancelGKBtn.addEventListener('click', ()=>{
     
 });
 
+  // Retrieve form values
+  function getDataForm1value(){
+    const name = document.getElementById('Playername').value;
+    const id = document.getElementById('selectedId1').value;
+    const photo = document.getElementById('photo').value;
+    const position = document.getElementById('positions').value;
+    const nationality = document.getElementById('nationality').value;
+    const flag = document.getElementById('flag').value;
+    const club = document.getElementById('club').value;
+    const logo = document.getElementById('logo').value;
+    const rating = document.getElementById('rating').value;
+    const pace = document.getElementById('pace').value;
+    const shooting = document.getElementById('shooting').value;
+    const passing = document.getElementById('passing').value;
+    const dribbling = document.getElementById('dribbling').value;
+    const defending = document.getElementById('defending').value;
+    const physical = document.getElementById('physical').value;
+  
+  
+    const newData = {
+  name,
+  id,
+  photo,
+  position,
+  nationality,
+  flag,
+  club,
+  logo,
+  rating,
+  pace,
+  shooting,
+  passing,
+  dribbling,
+  defending,
+  physical,
+    }
+    return newData}
 
 document.getElementById('submitData').addEventListener('click', function (event) {
           event.preventDefault();
           console.log("newData");
         
-  // Retrieve form values
-  const name = document.getElementById('Playername').value;
-  const id = document.getElementById('selectedId1').value;
-  const photo = document.getElementById('photo').value;
-  const position = document.getElementById('positions').value;
-  const nationality = document.getElementById('nationality').value;
-  const flag = document.getElementById('flag').value;
-  const club = document.getElementById('club').value;
-  const logo = document.getElementById('logo').value;
-  const rating = document.getElementById('rating').value;
-  const pace = document.getElementById('pace').value;
-  const shooting = document.getElementById('shooting').value;
-  const passing = document.getElementById('passing').value;
-  const dribbling = document.getElementById('dribbling').value;
-  const defending = document.getElementById('defending').value;
-  const physical = document.getElementById('physical').value;
 
 
-  const newData = {
-name,
-id,
-photo,
-position,
-nationality,
-flag,
-club,
-logo,
-rating,
-pace,
-shooting,
-passing,
-dribbling,
-defending,
-physical,
-  }
+  const newData = getDataForm1value();
 // Add the new player data to the list
 console.log(newData);
 

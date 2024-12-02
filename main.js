@@ -226,7 +226,6 @@ playersBox.forEach(box => {
         const cardsSelected = modalBox.querySelectorAll(".fut-player-card");
         cardsSelected.forEach(card => {
         card.addEventListener('click',()=>{
-            modalBox.innerHTML="";
             // hidde modal
             box.classList.add("hidden");
             modalContainer.classList.remove("flex");
@@ -311,7 +310,7 @@ function getDataForm2(){
 
 
 function getDataFormGK(){
-  const rating = document.getElementById('rating').value;
+  const rating = document.getElementById('rating2').value;
   const diving = document.getElementById('diving').value;
   const handling = document.getElementById('handling').value;
   const kicking = document.getElementById('kicking').value;

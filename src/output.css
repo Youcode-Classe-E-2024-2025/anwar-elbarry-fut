@@ -660,6 +660,10 @@ video {
   grid-column-start: 7;
 }
 
+.col-start-1 {
+  grid-column-start: 1;
+}
+
 .row-start-1 {
   grid-row-start: 1;
 }
@@ -674,6 +678,10 @@ video {
 
 .row-start-7 {
   grid-row-start: 7;
+}
+
+.row-start-2 {
+  grid-row-start: 2;
 }
 
 .mx-auto {
@@ -842,6 +850,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
