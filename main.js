@@ -597,11 +597,107 @@ else{
 if(data2.pace == 0){
   setError(inputs2.pace,'pace is required');
 }
-else if(data2.shopaceoting < 1 || data2.shooting > 100){
+else if(data2.pace < 1 || data2.pace > 100){
   setError(inputs2.pace,'pace should be between 1 and 100.');
 }
 else{
   setSuccess(inputs2.pace);
+  counter++;
+}
+return counter;
+}
+// validate  form3 
+function isvalidateForm3(counter){
+
+  const dataGK = getDataFormGK();
+  const inputsGK = getinputsFormGK();
+
+  // rating
+  if(dataGK.rating == 0){
+    setError(inputsGK.rating,'rating is required');
+  }
+  else if(dataGK.rating < 1 || dataGK.rating > 100){
+    setError(inputsGK.rating,'rating should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputsGK.rating);
+    counter++;
+  }
+
+  // positioning
+
+  if(dataGK.positioning == 0){
+    setError(inputsGK.positioning,'positioning is required');
+  }
+  else if(dataGK.positioning < 1 || dataGK.positioning > 100){
+    setError(inputsGK.positioning,'positioning should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputsGK.positioning);
+    counter++;
+  }
+
+    // speed
+
+  if(dataGK.speed == 0){
+    setError(inputsGK.speed,'speed is required');
+  }
+  else if(dataGK.speed < 1 || dataGK.speed > 100){
+    setError(inputsGK.speed,'speed should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputsGK.speed);
+    counter++;
+  }
+
+  // reflexes
+
+  if(dataGK.reflexes == 0){
+    setError(inputsGK.reflexes,'reflexes is required');
+  }
+  else if(dataGK.reflexes < 1 || dataGK.reflexes > 100){
+    setError(inputsGK.reflexes,'reflexes should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputsGK.reflexes);
+    counter++;
+  }
+
+ // handling
+
+ if(dataGK.handling == 0){
+  setError(inputsGK.handling,'handling is required');
+}
+else if(dataGK.handling < 1 || dataGK.handling > 100){
+  setError(inputsGK.handling,'handling should be between 1 and 100.');
+}
+else{
+  setSuccess(inputsGK.handling);
+  counter++;
+}
+
+// kicking
+
+if(dataGK.kicking == 0){
+  setError(inputsGK.kicking,'kicking is required');
+}
+else if(dataGK.kicking < 1 || dataGK.kicking > 100){
+  setError(inputsGK.kicking,'kicking should be between 1 and 100.');
+}
+else{
+  setSuccess(inputsGK.kicking);
+  counter++;
+}
+// diving
+
+if(dataGK.diving == 0){
+  setError(inputsGK.diving,'diving is required');
+}
+else if(dataGK.diving < 1 || dataGK.diving > 100){
+  setError(inputsGK.diving,'diving should be between 1 and 100.');
+}
+else{
+  setSuccess(inputsGK.diving);
   counter++;
 }
 return counter;
@@ -618,7 +714,7 @@ return counter;
 
   
   let globalData;
-  // get informations from the form modal
+  // global form
 
  globalForm.addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
@@ -670,15 +766,28 @@ return counter;
           addNewplayerModal.classList.toggle('hidden');
 
     })
+
+    
     cancelBtn2.addEventListener("click",(event)=> {
           event.preventDefault();
           formRating.reset();
+
+          const inputControl= document.querySelectorAll('.inputControl');
+          inputControl.forEach(control => {
+            const error = control.querySelector(".error");
+            error.innerHTML  = "";
+           control.classList.remove('error');
+           control.classList.remove('success');
+          })
+
           globalForm.classList.toggle("hidden");
           formRating.classList.toggle("hidden");
 addNewplayerModal.classList.toggle('flex');
 addNewplayerModal.classList.toggle('hidden');
 
     })
+
+
     cancelBtn3.addEventListener("click",(event)=> {
           event.preventDefault();
           formRating.reset();
@@ -692,11 +801,10 @@ addNewplayerModal.classList.toggle('hidden');
     })
 
 
-    formRating.addEventListener('submit', (e)=> {
-      e.preventDefault()
+    formRating.addEventListener('submit', (event)=> {
+      event.preventDefault()
     
       let counter =0;
-      globalData = getDataForm1();
       counter = isvalidateForm2(counter);
       if(counter < 7){
         return
@@ -730,25 +838,34 @@ formRatingGK.addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
     
-   const gkRatingData =  getDataFormGK();
+    let counter =0;
+    counter = isvalidateForm3(counter);
+    if(counter < 7){
+      return
+    }
+    else{
+      const gkRatingData =  getDataFormGK();
         
-        Object.assign(globalData, gkRatingData);
-    
-  // Add the new player data to the list
-  listPlayers.push(globalData);
+      Object.assign(globalData, gkRatingData);
+  
+// Add the new player data to the list
+listPlayers.push(globalData);
 
-  // Save the updated list back into localStorage
-  localStorage.setItem('players', JSON.stringify(listPlayers));
-  addNewplayerModal.classList.toggle('flex');
-  addNewplayerModal.classList.toggle('hidden');
-  globalForm.classList.toggle("hidden");
-  formRatingGK.classList.toggle("hidden");
-  // Optionally, log to confirm the update
-  console.log("Player added:", globalData);
-  console.log("Updated players list:", listPlayers);
+// Save the updated list back into localStorage
+localStorage.setItem('players', JSON.stringify(listPlayers));
+addNewplayerModal.classList.toggle('flex');
+addNewplayerModal.classList.toggle('hidden');
+globalForm.classList.toggle("hidden");
+formRatingGK.classList.toggle("hidden");
+// Optionally, log to confirm the update
+console.log("Player added:", globalData);
+console.log("Updated players list:", listPlayers);
 
-  formRatingGK.reset();
+formRatingGK.reset();
 
+    }
+
+  
     });
 
 
