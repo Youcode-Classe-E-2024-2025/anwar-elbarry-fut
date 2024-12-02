@@ -438,6 +438,9 @@ function isvalidateForm1(counter){
   if(globalData.name === ''){
     setError(globalinputs.name,'player name is required');
   }
+  else if(!/^[A-Za-z]+([\'-]?[A-Za-z]+)*(\s[A-Za-z]+([\'-]?[A-Za-z]+)*)*$/.test(globalData.name)){
+    setError(globalinputs.name,'Player name should only contain letters, hyphens, apostrophes, and spaces (e.g., John O\'Connor or Mary-Jane).');
+  }
   else{
     setSuccess(globalinputs.name);
     counter++;
