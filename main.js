@@ -255,10 +255,8 @@ const formRatingGK = document.getElementById("addPlayerForm-RatingGK");
 const formRating = document.getElementById("addPlayerForm-Rating");
 
 
-// buttens
-// const submitBtn1 = document.getElementById('submit1');
-// const submitBtn2 = document.getElementById('submit2');
-// const submitBtn3 = document.getElementById('submit3');
+// cancel Btns
+
 const cancelBtn1 = document.getElementById("cancel1");
 const cancelBtn2 = document.getElementById("cancel2");
 const cancelBtn3 = document.getElementById("cancel3");
@@ -335,6 +333,7 @@ function getDataFormGK(){
 }
 
 // select inputs
+
 function getinputsForm1(){
   const name = document.getElementById('Playername');
   const photo = document.getElementById('photo');
@@ -799,7 +798,7 @@ addNewplayerModal.classList.toggle('hidden');
            control.classList.remove('error');
            control.classList.remove('success');
           })
-          
+
           globalForm.classList.toggle("hidden");
           formRatingGK.classList.toggle("hidden");
 
