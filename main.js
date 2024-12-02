@@ -457,7 +457,10 @@ function isvalidateForm1(counter){
   }
   // club
   if(globalData.club === ''){
-    setError(globalinputs.club,'player club is required');
+    setError(globalinputs.club,'club name is required');
+  }
+  else if(!/^[A-Za-z]+([\'-]?[A-Za-z]+)*(\s[A-Za-z]+([\'-]?[A-Za-z]+)*)*$/.test(globalData.name)){
+    setError(globalinputs.name,'club name should only contain letters, hyphens, apostrophes, and spaces.');
   }
   else{
     setSuccess(globalinputs.club);
@@ -487,6 +490,9 @@ function isvalidateForm1(counter){
   if(globalData.nationality === ''){
     setError(globalinputs.nationality,'player nationality is required');
   }
+  else if(!/^[A-Za-z]+([\'-]?[A-Za-z]+)*(\s[A-Za-z]+([\'-]?[A-Za-z]+)*)*$/.test(globalData.name)){
+    setError(globalinputs.name,'nationality should only contain letters, hyphens, apostrophes, and spaces.');
+  }
   else{
     setSuccess(globalinputs.nationality);
     counter++;
@@ -504,6 +510,103 @@ function isvalidateForm1(counter){
 
   return counter;
 }
+// validate  form2 
+function isvalidateForm2(counter){
+
+  const data2 = getDataForm2();
+  const inputs2 = getinputsForm2();
+
+  // rating
+  if(data2.rating == 0){
+    setError(inputs2.rating,'rating is required');
+  }
+  else if(data2.rating < 1 || data2.rating > 100){
+    setError(inputs2.rating,'rating should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputs2.rating);
+    counter++;
+  }
+
+  // physical
+
+  if(data2.physical == 0){
+    setError(inputs2.physical,'physical is required');
+  }
+  else if(data2.physical < 1 || data2.physical > 100){
+    setError(inputs2.physical,'physical should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputs2.physical);
+    counter++;
+  }
+
+    // defending
+
+  if(data2.defending == 0){
+    setError(inputs2.defending,'defending is required');
+  }
+  else if(data2.defending < 1 || data2.defending > 100){
+    setError(inputs2.defending,'defending should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputs2.defending);
+    counter++;
+  }
+
+  // dribbling
+
+  if(data2.dribbling == 0){
+    setError(inputs2.dribbling,'dribbling is required');
+  }
+  else if(data2.dribbling < 1 || data2.dribbling > 100){
+    setError(inputs2.dribbling,'dribbling should be between 1 and 100.');
+  }
+  else{
+    setSuccess(inputs2.dribbling);
+    counter++;
+  }
+
+ // passing
+
+ if(data2.passing == 0){
+  setError(inputs2.passing,'passing is required');
+}
+else if(data2.passing < 1 || data2.passing > 100){
+  setError(inputs2.passing,'passing should be between 1 and 100.');
+}
+else{
+  setSuccess(inputs2.passing);
+  counter++;
+}
+
+// shooting
+
+if(data2.shooting == 0){
+  setError(inputs2.shooting,'shooting is required');
+}
+else if(data2.shooting < 1 || data2.shooting > 100){
+  setError(inputs2.shooting,'shooting should be between 1 and 100.');
+}
+else{
+  setSuccess(inputs2.shooting);
+  counter++;
+}
+// pace
+
+if(data2.pace == 0){
+  setError(inputs2.pace,'pace is required');
+}
+else if(data2.shopaceoting < 1 || data2.shooting > 100){
+  setError(inputs2.pace,'pace should be between 1 and 100.');
+}
+else{
+  setSuccess(inputs2.pace);
+  counter++;
+}
+return counter;
+}
+
   const addNewPlayerBtn = document.getElementById("addPlayerBtn");
   const addNewplayerModal = document.querySelector(".addNewplayer-modal");
   
@@ -520,9 +623,9 @@ function isvalidateForm1(counter){
  globalForm.addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
-   let counter =0;
-    globalData = getDataForm1();
-   counter = isvalidateForm1(counter);
+  let counter =0;
+  globalData = getDataForm1();
+  counter = isvalidateForm1(counter);
   if(counter < 7){
     return;
   }
@@ -592,10 +695,16 @@ addNewplayerModal.classList.toggle('hidden');
     formRating.addEventListener('submit', (e)=> {
       e.preventDefault()
     
-        
-    const  OtherRatingData =  getDataForm2();
+      let counter =0;
+      globalData = getDataForm1();
+      counter = isvalidateForm2(counter);
+      if(counter < 7){
+        return
+      }
+      else{
+        const  OtherRatingData =  getDataForm2();
           
-          Object.assign(globalData, OtherRatingData);
+        Object.assign(globalData, OtherRatingData);
       
     
       // Add the new player data to the list
@@ -613,6 +722,8 @@ addNewplayerModal.classList.toggle('hidden');
 
       formRating.reset();
     
+      }
+       
     })
 
 formRatingGK.addEventListener('submit', function (event) {
