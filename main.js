@@ -790,8 +790,16 @@ addNewplayerModal.classList.toggle('hidden');
 
     cancelBtn3.addEventListener("click",(event)=> {
           event.preventDefault();
-          formRating.reset();
+          formRatingGK.reset();
 
+          const inputControl= document.querySelectorAll('.inputControl');
+          inputControl.forEach(control => {
+            const error = control.querySelector(".error");
+            error.innerHTML  = "";
+           control.classList.remove('error');
+           control.classList.remove('success');
+          })
+          
           globalForm.classList.toggle("hidden");
           formRatingGK.classList.toggle("hidden");
 
