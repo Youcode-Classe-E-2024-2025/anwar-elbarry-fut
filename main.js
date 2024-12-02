@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // localStorage.clear();
   if(!localStorage.getItem('players')){
     
-    fetch("FUT-Champ/players.json")
+    fetch("./FUT-Champ/players.json")
     .then(Response =>{ 
         if(!Response.ok){
             console.log("error");
@@ -313,7 +313,7 @@ function getDataForm2(){
 
 
 function getDataFormGK(){
-  const rating = document.getElementById('rating2').value;
+  const rating = document.getElementById('rating').value;
   const diving = document.getElementById('diving').value;
   const handling = document.getElementById('handling').value;
   const kicking = document.getElementById('kicking').value;

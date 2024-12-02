@@ -44,8 +44,8 @@ function display(list){
             playerCard.innerHTML = `
            
             <div class="fut-player-card  cursor-pointer" data-id="${player.id}">
-             <i class="fa-regular fa-pen-to-square absolute right-0 z-5"></i>
-             <i class="fa-solid fa-trash absolute left-0 z-50   "></i>
+            <i class="fa-regular fa-pen-to-square absolute right-0 z-50 "></i>
+             <i class="fa-solid fa-trash absolute left-0 z-50  "></i>
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -179,11 +179,14 @@ if(event.target.classList.contains('fa-trash')){
 }
      
 });
+const globalForm = document.getElementById("edditerForm");
+const formRatingGK = document.getElementById("edditForm-RatingGK");
+const formRating = document.getElementById("edditForm-Rating");
 
 // function to get value from the list
 
 function getDataValue(player){
-       document.getElementById('selectedId').value = player.id;
+      //  document.getElementById('selectedId').value = player.id;
        document.getElementById('Playername').value = player.name;
        document.getElementById('photo').value = player.photo;
        document.getElementById('positions').value = player.position;
@@ -199,8 +202,26 @@ function getDataValue(player){
        document.getElementById('defending').value = player.defending;
        document.getElementById('physical').value = player.physical;
 }
+function getDataGKValue(player){
+      //  document.getElementById('selectedId2').value = player.id;
+       document.getElementById('Playername2').value = player.name;
+       document.getElementById('photo2').value = player.photo;
+       document.getElementById('positions2').value = player.position;
+       document.getElementById('nationality2').value = player.nationality;
+       document.getElementById('flag2').value = player.flag;
+       document.getElementById('club2').value = player.club;
+       document.getElementById('logo2').value = player.logo;
+       document.getElementById('rating2').value = player.rating;
+       document.getElementById('diving').value = player.diving;
+       document.getElementById('handling').value = player.handling;
+       document.getElementById('kicking').value = player.kicking;
+       document.getElementById('reflexes').value = player.reflexes;
+       document.getElementById('speed').value = player.speed;
+       document.getElementById('positioning').value = player.positioning;
+}
 // desplay modal
 const editModal = document.querySelector(".edit-modal");
+const editModalGK = document.querySelector(".edit-modalGK");
 
 container.addEventListener('click', (event)=>{
           event.preventDefault()
@@ -208,26 +229,96 @@ if(event.target.classList.contains('fa-pen-to-square')){
   const cardContainer = event.target.closest('.fut-player-card');
   const playerId = cardContainer.getAttribute('data-id');
   
- const playerSelected= listPlayers.find(player => player.id === playerId);
   
-  getDataValue(playerSelected);
+ const playerSelected= listPlayers.find(player => player.id === playerId);
+  if(playerSelected.position === "GK"){
+    getDataGKValue(playerSelected);
+     
+    editModalGK.classList.remove("hidden");
+    editModalGK.classList.add("flex");
+  }
+  else{
+    getDataValue(playerSelected);
+     
+    editModal.classList.remove("hidden");
+    editModal.classList.add("flex");
+  }
 
-     editModal.classList.remove("hidden");
-     editModal.classList.add("flex");
 }
      
 });
 // hidde the modal
 const cancelBtn = document.getElementById("cancel");
+const cancelGKBtn = document.getElementById("cancelGK");
 cancelBtn.addEventListener('click', ()=>{
      
      editModal.classList.add("hidden");
      editModal.classList.remove("flex");
     
 });
+cancelGKBtn.addEventListener('click', ()=>{
+     
+     editModalGK.classList.add("hidden");
+     editModalGK.classList.remove("flex");
+    
+});
 
 
 document.getElementById('submitData').addEventListener('click', function (event) {
+          event.preventDefault();
+          console.log("newData");
+  // Retrieve form values
+  const name = document.getElementById('Playername').value;
+  const id = document.getElementById('selectedId').value;
+  const photo = document.getElementById('photo').value;
+  const position = document.getElementById('positions').value;
+  const nationality = document.getElementById('nationality').value;
+  const flag = document.getElementById('flag').value;
+  const club = document.getElementById('club').value;
+  const logo = document.getElementById('logo').value;
+  const rating = document.getElementById('rating').value;
+  const pace = document.getElementById('pace').value;
+  const shooting = document.getElementById('shooting').value;
+  const passing = document.getElementById('passing').value;
+  const dribbling = document.getElementById('dribbling').value;
+  const defending = document.getElementById('defending').value;
+  const physical = document.getElementById('physical').value;
+
+
+  const newData = {
+name,
+id,
+photo,
+position,
+nationality,
+flag,
+club,
+logo,
+rating,
+pace,
+shooting,
+passing,
+dribbling,
+defending,
+physical,
+  }
+// Add the new player data to the list
+console.log(newData);
+
+
+// Save the updated list back into localStorage
+list = JSON.parse(localStorage.getItem('players')) || []; 
+const index = list.findIndex(playerD=>playerD.id===newData.id);
+list.splice(index,1,newData);
+
+localStorage.setItem('players',JSON.stringify(list));
+deletAll();
+ display(list)
+editModal.classList.remove('flex');
+editModal.classList.add('hidden');
+
+});
+document.getElementById('submitDataGK').addEventListener('click', function (event) {
           event.preventDefault();
           console.log("newData");
   // Retrieve form values
