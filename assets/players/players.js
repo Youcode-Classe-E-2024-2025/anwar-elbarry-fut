@@ -44,8 +44,8 @@ function display(list){
             playerCard.innerHTML = `
            
             <div class="fut-player-card  cursor-pointer" data-id="${player.id}">
-             <i class="fa-regular fa-pen-to-square absolute right-0 z-5"></i>
-             <i class="fa-solid fa-trash absolute left-0 z-50   "></i>
+            <i class="fa-regular fa-pen-to-square absolute right-0 z-50 "></i>
+             <i class="fa-solid fa-trash absolute left-0 z-50  "></i>
         <!-- Player Card Top-->
         <div class="player-card-top">
           <div class="player-master-info">
@@ -145,6 +145,7 @@ function display(list){
 }
 
 // function to delet all players
+
 function deletAll(){
 
 stBox.innerHTML="";
@@ -160,8 +161,8 @@ gkBox.innerHTML="";
 }
 
 
-
 // delet player
+
 const container = document.querySelector(".container");
 container.addEventListener('click', (event)=>{
 if(event.target.classList.contains('fa-trash')){
@@ -205,10 +206,11 @@ const editModal = document.querySelector(".edit-modal");
 container.addEventListener('click', (event)=>{
           event.preventDefault()
 if(event.target.classList.contains('fa-pen-to-square')){
+
   const cardContainer = event.target.closest('.fut-player-card');
   const playerId = cardContainer.getAttribute('data-id');
   
- const playerSelected= listPlayers.find(player => player.id === playerId);
+  const playerSelected= listPlayers.find(player => player.id === playerId);
   
   getDataValue(playerSelected);
 

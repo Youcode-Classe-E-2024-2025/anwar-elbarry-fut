@@ -25,7 +25,7 @@
       </a>
     </ul>
   </nav>
-  <main class="flex items-center relative"style="background-image: url('./FUT-Champ/assets/foot.jpg'); background-position: left; background-size: cover;">
+  <main class="flex  items-center px-2 relative"style="background-image: url('./FUT-Champ/assets/foot.jpg'); background-position: left; background-size: cover;">
 
     <div class="stadup relative w-full max-w-2xl h-full mx-auto">
       <img src="./FUT-Champ/assets/field-bg.svg" class=" w-full h-full object-cover">
@@ -33,7 +33,7 @@
       </div>
     </div>
     <!-- right_bar -->
-    <div class="right_bar w-1/4 bg-black opacity-70 px-4">
+    <div class="right_bar w-1/4  bg-black opacity-70 p-4">
       <div class="mb-4">
         <label for="formation" class="block text-gray-300 text-sm font-bold mb-2">Formation</label>
         <select id="formation"
@@ -49,24 +49,59 @@
         add new player
       </button>
 
-      <div class="reserve overflow-y-auto w-full">
-        <div data-position="LW" class="fut-player-card cursor-pointer flex hover:scale-105">
-          <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
-          <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">LW</h3>
+    <!-- reserve players -->
+     <p class="text-gray-300 text-sm font-bold my-2"> Reserve players</p>
+      <div class="reserve overflow-y-auto  flex flex-wrap h-64">
+        <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+          <div data-position="LW" class="fut-player-card cursor-pointer flex hover:scale-105">
+              <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+              <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">LW</h3>
+          </div>
       </div>
+      <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
         <div data-position="RW" class="fut-player-card cursor-pointer flex hover:scale-105">
+            <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+            <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">RW</h3>
+        </div>
+    </div>
+    <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+      <div data-position="ST" class="fut-player-card cursor-pointer flex hover:scale-105">
           <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
-          <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">RW</h3>
+          <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">ST</h3>
       </div>
-        <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
-          <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
-          <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CM</h3>
+  </div>
+  <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+    <div data-position="CM" class="fut-player-card cursor-pointer flex hover:scale-105">
+        <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+        <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CM</h3>
+    </div>
+</div>
+  <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+    <div data-position="GK" class="fut-player-card cursor-pointer flex hover:scale-105">
+        <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+        <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">GK</h3>
+    </div>
+</div>
+  <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+    <div data-position="CB" class="fut-player-card cursor-pointer flex hover:scale-105">
+        <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+        <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">CB</h3>
+    </div>
+</div>
+  <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+    <div data-position="RB" class="fut-player-card cursor-pointer flex hover:scale-105">
+        <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+        <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">RB</h3>
+    </div>
+</div>
+  <div class="card row-start-1 flex justify-center col-start-2 col-span-2"> <!-- *** fut-player-card ***-->
+    <div data-position="LB" class="fut-player-card cursor-pointer flex hover:scale-105">
+        <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
+        <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">LB</h3>
+    </div>
+</div>
       </div>
-        <div data-position="GK" class="fut-player-card cursor-pointer flex hover:scale-105">
-          <i class="fa-solid fa-plus fa-xl" style="color: #cccccc;"></i>
-          <h3 class="text-white text-center bg-black p-1 h-fit rounded font-semibold">GK</h3>
-      </div>
-      </div>
+
     </div>
     <!--card modal -->
     <div class="modal_players hidden w-3/4 h-full absolute items-center justify-center z-20 ">
