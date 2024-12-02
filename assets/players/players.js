@@ -180,14 +180,11 @@ if(event.target.classList.contains('fa-trash')){
 }
      
 });
-const globalForm = document.getElementById("edditerForm");
-const formRatingGK = document.getElementById("edditForm-RatingGK");
-const formRating = document.getElementById("edditForm-Rating");
 
 // function to get value from the list
 
 function getDataValue(player){
-      //  document.getElementById('selectedId').value = player.id;
+       document.getElementById('selectedId1').value = player.id;
        document.getElementById('Playername').value = player.name;
        document.getElementById('photo').value = player.photo;
        document.getElementById('positions').value = player.position;
@@ -204,7 +201,7 @@ function getDataValue(player){
        document.getElementById('physical').value = player.physical;
 }
 function getDataGKValue(player){
-      //  document.getElementById('selectedId2').value = player.id;
+       document.getElementById('selectedId2').value = player.id;
        document.getElementById('Playername2').value = player.name;
        document.getElementById('photo2').value = player.photo;
        document.getElementById('positions2').value = player.position;
@@ -249,6 +246,7 @@ if(event.target.classList.contains('fa-pen-to-square')){
 }
      
 });
+
 // hidde the modal
 const cancelBtn = document.getElementById("cancel");
 const cancelGKBtn = document.getElementById("cancelGK");
@@ -269,9 +267,10 @@ cancelGKBtn.addEventListener('click', ()=>{
 document.getElementById('submitData').addEventListener('click', function (event) {
           event.preventDefault();
           console.log("newData");
+        
   // Retrieve form values
   const name = document.getElementById('Playername').value;
-  const id = document.getElementById('selectedId').value;
+  const id = document.getElementById('selectedId1').value;
   const photo = document.getElementById('photo').value;
   const position = document.getElementById('positions').value;
   const nationality = document.getElementById('nationality').value;
@@ -324,24 +323,24 @@ document.getElementById('submitDataGK').addEventListener('click', function (even
           event.preventDefault();
           console.log("newData");
   // Retrieve form values
-  const name = document.getElementById('Playername').value;
-  const id = document.getElementById('selectedId').value;
-  const photo = document.getElementById('photo').value;
-  const position = document.getElementById('positions').value;
-  const nationality = document.getElementById('nationality').value;
-  const flag = document.getElementById('flag').value;
-  const club = document.getElementById('club').value;
-  const logo = document.getElementById('logo').value;
-  const rating = document.getElementById('rating').value;
-  const pace = document.getElementById('pace').value;
-  const shooting = document.getElementById('shooting').value;
-  const passing = document.getElementById('passing').value;
-  const dribbling = document.getElementById('dribbling').value;
-  const defending = document.getElementById('defending').value;
-  const physical = document.getElementById('physical').value;
+  const id = document.getElementById('selectedId2').value;
+  const name = document.getElementById('Playername2').value ;
+  const photo = document.getElementById('photo2').value ;
+  const position = document.getElementById('positions2').value ;
+  const nationality = document.getElementById('nationality2').value ;
+  const flag = document.getElementById('flag2').value ;
+  const club = document.getElementById('club2').value ;
+  const logo = document.getElementById('logo2').value ;
+  const rating = document.getElementById('rating2').value ;
+  const diving = document.getElementById('diving').value ;
+  const handling = document.getElementById('handling').value ;
+  const kicking = document.getElementById('kicking').value ;
+  const reflexes = document.getElementById('reflexes').value ;
+  const speed = document.getElementById('speed').value ;
+  const positioning = document.getElementById('positioning').value ;
 
 
-  const newData = {
+  const newDataGK = {
 name,
 id,
 photo,
@@ -351,27 +350,27 @@ flag,
 club,
 logo,
 rating,
-pace,
-shooting,
-passing,
-dribbling,
-defending,
-physical,
+diving,
+handling,
+kicking,
+reflexes,
+speed,
+positioning,
   }
 // Add the new player data to the list
-console.log(newData);
+console.log(newDataGK);
 
 
 // Save the updated list back into localStorage
 list = JSON.parse(localStorage.getItem('players')) || []; 
-const index = list.findIndex(playerD=>playerD.id===newData.id);
-list.splice(index,1,newData);
+const index = list.findIndex(playerD=>playerD.id===newDataGK.id);
+list.splice(index,1,newDataGK);
 
 localStorage.setItem('players',JSON.stringify(list));
 deletAll();
  display(list)
-editModal.classList.remove('flex');
-editModal.classList.add('hidden');
+editModalGK.classList.remove('flex');
+editModalGK.classList.add('hidden');
 
 });
 
