@@ -3,8 +3,9 @@
 ## Description
 
 This project is an interactive application that allows you to manage a football team. It provides an intuitive user interface to organize players according to specific tactical formations, such as 4-3-3. The application also supports managing a file of player data for easy import and export of player information in JSON format, with new player data being stored in local storage. The styling is handled using both Tailwind CSS, including some pre-built components, and custom CSS.
-
+ 
 ---
+You can try the live demo of this project [here](https://anouar-elbarry-fut.vercel.app/).
 
 ## Features
 
