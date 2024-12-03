@@ -58,11 +58,11 @@ You can try the live demo of this project [here](https://anouar-elbarry-fut.verc
 
 1. Clone the repository:
    ```bash
-   git clone <repository-URL>
+   git clone https://github.com/Youcode-Classe-E-2024-2025/anwar-elbarry-fut.git
    `````
 2. Navigate to the project directory:
    ```bash
-   cd <project-name>
+   cd anwar-elbarry-fut
    `````
 3. Run the application:
 - Open index.html in a browser.
