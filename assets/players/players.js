@@ -230,6 +230,9 @@ if(event.target.classList.contains('fa-pen-to-square')){
   
   
  const playerSelected= listPlayers.find(player => player.id === playerId);
+ console.log(playerSelected);
+
+ if(playerSelected){
   if(playerSelected.position === "GK"){
     getDataGKValue(playerSelected);
      
@@ -242,6 +245,8 @@ if(event.target.classList.contains('fa-pen-to-square')){
     editModal.classList.remove("hidden");
     editModal.classList.add("flex");
   }
+ }
+
 
 }
      

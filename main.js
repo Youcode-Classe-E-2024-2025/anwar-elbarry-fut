@@ -273,7 +273,7 @@ function getDataForm1(){
   const logo = document.getElementById('logo').value;
 
   let globalData = {
-    id:Date.now(),
+    id:`${Date.now()}`,
     name,
     photo,
     position,
