@@ -163,7 +163,7 @@ gkBox.innerHTML="";
 
 // delet player
 
-const container = document.querySelector(".container");
+const container = document.querySelector(".conTainer");
 container.addEventListener('click', (event)=>{
 if(event.target.classList.contains('fa-trash')){
   const cardContainer = event.target.closest('.fut-player-card');
