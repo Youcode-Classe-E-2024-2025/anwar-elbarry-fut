@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const listPlayers = JSON.parse(localStorage.getItem('players'))
 
 
+// creat card
 function ceratCard(player){
         let nameSize = null;
         if(player.name.length >= 19){
@@ -125,6 +126,7 @@ function ceratCard(player){
        return playerCard;
 }
 
+// creat studium grid formation (4-3-3)
 const stadium = document.querySelector(".stad");
 function studiCards(){
       stadium.innerHTML = `
@@ -196,11 +198,15 @@ function studiCards(){
                 </div>`
                 return stadium;
 }
-
 studiCards()
+
+// created cards
 const playersBox = document.querySelectorAll(".fut-player-card");
+// modal to add players
 const modalBox = document.querySelector(".modalPlayer");
+// container modal
 const modalContainer = document.querySelector(".modal_players");
+
 
 playersBox.forEach(box => {
    const plus= box.querySelector(".fa-plus");
@@ -285,7 +291,6 @@ function getDataForm1(){
 return globalData;
 }
 
-
 function getDataForm2(){
   const rating = document.getElementById('rating').value;
   const pace = document.getElementById('pace').value;
@@ -307,7 +312,6 @@ function getDataForm2(){
 
   return OtherRatingData;
 }
-
 
 function getDataFormGK(){
   const rating = document.getElementById('rating2').value;
@@ -354,7 +358,6 @@ function getinputsForm1(){
 return globalinputs;
 }
 
-
 function getinputsForm2(){
   const rating = document.getElementById('rating');
   const pace = document.getElementById('pace');
@@ -376,7 +379,6 @@ function getinputsForm2(){
 
   return OtherRatinginputs;
 }
-
 
 function getinputsFormGK(){
   const rating = document.getElementById('rating2');
@@ -423,8 +425,6 @@ function setSuccess(element){
   inputControl.classList.remove('error');
   
 }
-
-
 
 
 // validate global form 

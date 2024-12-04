@@ -223,6 +223,7 @@ const editModalGK = document.querySelector(".edit-modalGK");
 
 container.addEventListener('click', (event)=>{
           event.preventDefault()
+          // target eddit icon
 if(event.target.classList.contains('fa-pen-to-square')){
 
   const cardContainer = event.target.closest('.fut-player-card');
